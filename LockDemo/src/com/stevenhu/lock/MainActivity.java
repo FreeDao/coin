@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
+import org.jq.coin.R;
 
 public class MainActivity extends Activity 
 {

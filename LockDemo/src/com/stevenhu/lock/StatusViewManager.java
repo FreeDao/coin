@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
+import org.jq.coin.R;
 
 
 import android.app.Activity;

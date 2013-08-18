@@ -16,6 +16,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
+import org.jq.coin.R;
 
 public class StarLockView extends ViewGroup implements OnClickListener
 {

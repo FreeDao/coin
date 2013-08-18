@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"	
+    style="@style/layout_full"
+    android:orientation="vertical"
+    android:background="#ffffff">	
+	<LinearLayout
+			style="@style/layout_vertical"
+	    	android:layout_weight="1">	
+	    	<Button
+	    		style="@style/layout_full"
+	    		android:text="Group的标题"/> 
+	</LinearLayout> 
+	<LinearLayout
+			style="@style/layout_vertical"
+	    	android:layout_weight="5.5">	 	
+	    <RadioGroup
+	    	style="@style/leftbar_radioGroup"
+	    	android:id="@+id/activity_group_radioGroup"
+	    	android:checkedButton="@+id/activity_group_radioButton0"
+	    	android:background="#ff0000"
+	    	android:layout_weight="1"
+	    	android:orientation="vertical">
+	    	<RadioButton
+		       style="@style/leftbar_radioButton"
+	    	   android:id="@id/activity_group_radioButton0"/> 
+		    <RadioButton
+		       style="@style/leftbar_radioButton"
+		       android:id="@+id/activity_group_radioButton1"/>
+		    <RadioButton
+		       style="@style/leftbar_radioButton"
+		       android:id="@+id/activity_group_radioButton2"/>
+		    <RadioButton
+		       style="@style/leftbar_radioButton"
+		       android:id="@+id/activity_group_radioButton3"/>
+		   <RadioButton
+		       style="@style/leftbar_radioButton"
+		   	   android:id="@+id/activity_group_radioButton4"/>
+	    </RadioGroup>	 
+    	<LinearLayout
+	    	android:id="@+id/activity_group_container"
+			style="@style/layout_horizontal"
+	    	android:layout_weight="5">	 
+	    </LinearLayout> 
+	</LinearLayout> 
+
+</LinearLayout>
+
