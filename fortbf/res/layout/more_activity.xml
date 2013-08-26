@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/backgroundcolor" >
+
+    <!-- 标题栏 -->
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top"
+        android:background="@drawable/title_bg" >
+
+        <TextView
+            android:id="@+id/titel_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_weight="1.0"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="@string/more"
+            android:textColor="#ffffffff"
+            android:textSize="15.0sp" />
+    </LinearLayout>
+
+    <!-- 内容区域 -->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/title"
+        android:layout_marginTop="-13.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="15.0dip"
+                android:text="@string/account"
+                android:textColor="@color/more_color" />
+
+            <LinearLayout
+                android:id="@+id/account_manager"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/more_all"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:id="@+id/account_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="@string/account_manager"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+
+                <ImageView
+                    android:id="@+id/arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10.0dip"
+                    android:src="@drawable/arrow" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="20.0dip"
+                android:text="@string/msg_remind"
+                android:textColor="@color/more_color" />
+
+            <LinearLayout
+                android:id="@+id/frequency"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/more_up"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="@string/remind_frequency"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+
+                <TextView
+                    android:id="@+id/frequency_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10.0dip"
+                    android:singleLine="true"
+                    android:textColor="#ff7f7f7f"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/remind_info"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:background="@drawable/more_down"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:singleLine="true"
+                    android:text="@string/remind_info"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="20.0dip"
+                android:text="@string/browsing_settings"
+                android:textColor="@color/more_color" />
+
+            <LinearLayout
+                android:id="@+id/upload_image_quality"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/more_up"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="@string/upload_image_quality"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+
+                <TextView
+                    android:id="@+id/text_upload_image_quality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10.0dip"
+                    android:singleLine="true"
+                    android:textColor="#ff7f7f7f"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/view_images"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:background="@drawable/more_middle"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="9.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="9.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="@string/view_images"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+
+                <TextView
+                    android:id="@+id/text_view_images"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10.0dip"
+                    android:singleLine="true"
+                    android:textColor="#ff7f7f7f"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/font_size"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:background="@drawable/more_down"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="@string/font_size"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+
+                <TextView
+                    android:id="@+id/text_font_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10.0dip"
+                    android:singleLine="true"
+                    android:textColor="#ff7f7f7f"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/clear_cash"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:layout_marginTop="20.0dip"
+                android:background="@drawable/more_up"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:singleLine="true"
+                    android:text="@string/clear_cash"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/about_bieta"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:background="@drawable/more_middle"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="9.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="9.0dip"
+                    android:singleLine="true"
+                    android:text="@string/about_tieba"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/position_paper"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10.0dip"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:background="@drawable/more_down"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:singleLine="true"
+                    android:text="@string/feedback"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
