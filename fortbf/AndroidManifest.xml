@@ -51,6 +51,14 @@
                 <action android:name="com.feixun.hu.action.lockservice"/>
             </intent-filter>
         </service>
+        <service android:name=".monitorApp">
+		</service>
+		<receiver
+			android:name=".bootReceiver">
+			<intent-filter>
+				<action android:name="org.leepood.monitordemo.APPS_CHANGED"/>
+			</intent-filter>
+		</receiver>
     </application>
 <uses-permission android:name="android.permission.DISABLE_KEYGUARD"></uses-permission>
 <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
