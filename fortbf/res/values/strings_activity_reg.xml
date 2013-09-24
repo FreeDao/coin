@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="title_activity_reg">注册用户</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">邮箱</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in_register">注册</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_forgot_password">Recover lost password</string>
+    <string name="login_progress_signing_in">正在注册&#8230;</string>
+    <string name="error_invalid_email">邮箱格式错误</string>
+    <string name="error_invalid_password">密码过短</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">必填项目</string>
+
+</resources>

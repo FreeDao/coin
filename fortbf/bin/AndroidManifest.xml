@@ -4,10 +4,12 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="15" 
-        android:targetSdkVersion="15"/>
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="15" />
 
     <application
+        android:name="demo.mydownload.MyApplcation"
         android:icon="@drawable/icon"
         android:label="@string/app_name" >
         <activity
@@ -33,33 +35,69 @@
         <activity
             android:name="com.hust.iprai.wen.home.MarkActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
-        
         <activity
             android:name="com.stevenhu.lock.MainActivity"
             android:label="@string/app_name"
-            android:launchMode="singleTask" 
-            android:screenOrientation="portrait">
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+
+        <service android:name="com.stevenhu.lock.StarLockService" >
+            <intent-filter>
+                <action android:name="com.feixun.hu.action.lockservice" />
+            </intent-filter>
+        </service>
+        <service android:name="org.jq.nbz.monitorApp" >
+        </service>
+
+        <receiver android:name="org.jq.nbz.bootReceiver" >
+            <intent-filter>
+                <action android:name="org.leepood.monitordemo.APPS_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="org.jq.nbz.InitActivity"
+            android:label="@string/title_activity_init"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service 
-            android:name="com.stevenhu.lock.StarLockService">
-            <intent-filter >
-                <action android:name="com.feixun.hu.action.lockservice"/>
-            </intent-filter>
-        </service>
-        <service android:name=".monitorApp">
-		</service>
-		<receiver
-			android:name=".bootReceiver">
-			<intent-filter>
-				<action android:name="org.leepood.monitordemo.APPS_CHANGED"/>
-			</intent-filter>
-		</receiver>
+        <activity
+            android:name="org.jq.nbz.RegActivity"
+            android:label="@string/title_activity_reg"
+            android:windowSoftInputMode="adjustResize|stateVisible" 
+            android:theme="@android:style/Theme.Holo.Light">
+        </activity>
+        <activity android:name="demo.mydownload.DownloadManagerActivity" >
+        </activity>
+        <activity android:name="demo.mydownload.MainActivity" >
+        </activity>
+        <activity android:name="demo.mydownload.newdownload.NewDownloadManagerActivity" >
+        </activity>
+        <activity android:name="demo.mydownload.TestVideoActivity" >
+        </activity>
+        <activity android:name="demo.mydownload.IndexActivity"></activity>
     </application>
-<uses-permission android:name="android.permission.DISABLE_KEYGUARD"></uses-permission>
-<uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 </manifest>

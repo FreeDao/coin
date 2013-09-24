@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light" >
+
+    <Button
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="45.5dp"
+        android:text="下载管理"
+        android:clickable="false"
+        android:background="#aaaaaa" />
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/title" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/download_listview_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/background_light" >
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

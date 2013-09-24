@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import com.hust.iprai.wen.home.LikeActivity;
 import com.hust.iprai.wen.home.MarkActivity;
 
+@SuppressWarnings("deprecation")
 public class HomeActivity extends ActivityGroup {
 	
 	private FrameLayout mContent;
