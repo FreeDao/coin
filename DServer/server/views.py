@@ -20,8 +20,8 @@ def addDevice(request):
     res={'code':1,'message':'错误，请重试'}
     try:
         reg_uid=request.GET['uid']
-        reg_uname=request.GET['upwd']
-        reg_upwd=request.GET['uname']
+        reg_uname=request.GET['uname']
+        reg_upwd=request.GET['upwd']
     except:
         return HttpResponse(json.dumps(res))
     reged=False
