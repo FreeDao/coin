@@ -1,8 +1,9 @@
 package com.hust.iprai.wen;
 
+import org.jq.nbz.R;
+
 import android.app.Activity;
 import android.os.Bundle;
-import org.jq.nbz.R;
 
 public class MoreActivity extends Activity {
 

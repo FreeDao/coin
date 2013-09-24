@@ -141,7 +141,7 @@ public class MainActivity extends BaseActivity
 	private List<DownloadMovieItem> initTestData()
 	{
 		List<DownloadMovieItem> items = new ArrayList<DownloadMovieItem>();
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			DownloadMovieItem d = new DownloadMovieItem();
 			String url  = "http://down.qq.com/cof/dltools/XD_V1.11.40.3_XFDL_signed.exe";//测试链接

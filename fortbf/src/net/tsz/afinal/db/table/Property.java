@@ -22,8 +22,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import android.util.Log;
-
 /**
  * @title 属性
  * @description 【非主键】的【基本数据类型】 都是属性

@@ -8,7 +8,6 @@
 */ 
 package demo.mydownload.newdownload;
 
-import android.content.Intent;
 import android.os.Bundle;
 import demo.mydownload.BaseActivity;
 

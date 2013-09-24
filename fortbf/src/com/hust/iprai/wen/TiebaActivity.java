@@ -1,5 +1,7 @@
 package com.hust.iprai.wen;
 
+import org.jq.nbz.R;
+
 import android.app.AlertDialog;
 import android.app.TabActivity;
 import android.content.DialogInterface;
@@ -10,7 +12,6 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TabHost;
 import android.widget.TextView;
-import org.jq.nbz.R;
 
 public class TiebaActivity extends TabActivity implements
 		CompoundButton.OnCheckedChangeListener {

@@ -2,17 +2,14 @@ package org.jq.nbz;
 
 import java.io.File;
 
-import com.hust.iprai.wen.TiebaActivity;
-
-import demo.mydownload.IndexActivity;
-
 import util.Static;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.widget.Toast;
+
+import com.hust.iprai.wen.TiebaActivity;
 
 public class InitActivity extends JQBaseActivity {
 
@@ -31,8 +28,8 @@ public class InitActivity extends JQBaseActivity {
 		File dir = new File(root.getAbsolutePath() + "/zhuomiandaren");
 		if (!dir.exists()) {
 			dir.mkdirs();
-			Static.loaclPth = dir.getAbsolutePath();
 		}
+		Static.loaclPth = dir.getAbsolutePath();
 	}
 
 	AsyncTask<Void, Void, Integer> checkNet = new AsyncTask<Void, Void, Integer>() {
@@ -75,7 +72,7 @@ public class InitActivity extends JQBaseActivity {
 		
 		protected void onPostExecute(Integer result) {
 			Intent it=new Intent();
-			it.setClass(InitActivity.this, IndexActivity.class);
+			it.setClass(InitActivity.this, TiebaActivity.class);
 			startActivity(it);
 			finish();
 		}

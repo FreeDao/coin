@@ -43,7 +43,7 @@ public abstract class BaseModel implements Serializable {
 
 	}
 
-	public String getIcon(String url) {
+	public static String getIcon(String url) {
 		String pth = null;
 		String fname = "" + url.hashCode();
 		String base = Static.loaclPth + "/";

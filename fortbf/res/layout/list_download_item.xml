@@ -26,7 +26,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="11dp"
-            android:src="@drawable/test_head_image" />
+            android:src="@drawable/default_icon" />
 
         <TextView
             android:id="@+id/movie_name_item"

@@ -82,7 +82,8 @@
         </activity>
         <activity android:name="demo.mydownload.DownloadManagerActivity" >
         </activity>
-        <activity android:name="demo.mydownload.MainActivity" >
+        <activity android:name="demo.mydownload.MainActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity android:name="demo.mydownload.newdownload.NewDownloadManagerActivity" >
         </activity>

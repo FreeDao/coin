@@ -3,11 +3,10 @@ package org.leepood.monitordemo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.app.ActivityManager;
-import android.app.Service;
 import android.app.ActivityManager.RunningAppProcessInfo;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;

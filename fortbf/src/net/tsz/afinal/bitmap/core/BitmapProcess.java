@@ -21,7 +21,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import net.tsz.afinal.bitmap.download.Downloader;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;

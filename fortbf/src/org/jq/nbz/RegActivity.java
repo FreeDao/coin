@@ -2,8 +2,6 @@ package org.jq.nbz;
 
 import org.jq.model.Httpres;
 
-import com.stevenhu.lock.MainActivity;
-
 import util.Static;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -20,6 +18,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.stevenhu.lock.MainActivity;
 
 /**
  * Activity which displays a login screen to the user, offering registration as

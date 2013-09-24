@@ -1,5 +1,7 @@
 package org.jq.model;
 
+import android.os.AsyncTask;
+
 public class DownloadTask extends BaseModel{
 
 	private static final long serialVersionUID = 4586400159230078146L;
@@ -12,4 +14,15 @@ public class DownloadTask extends BaseModel{
 	
 	public String iconPth;
 
+	public AsyncTask<Void, Void, String> bindImage=new AsyncTask<Void, Void, String>(){
+		
+		protected void onPostExecute(String result) {
+			iconPth=result;
+		}
+
+		@Override
+		protected String doInBackground(Void... params) {
+			return getIcon(icon);
+		};
+	};
 }
