@@ -77,19 +77,26 @@
         <activity
             android:name="org.jq.nbz.RegActivity"
             android:label="@string/title_activity_reg"
-            android:windowSoftInputMode="adjustResize|stateVisible" 
-            android:theme="@android:style/Theme.Holo.Light">
+            android:theme="@android:style/Theme.Holo.Light"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity android:name="demo.mydownload.DownloadManagerActivity" >
         </activity>
-        <activity android:name="demo.mydownload.MainActivity"
+        <activity
+            android:name="demo.mydownload.MainActivity"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity android:name="demo.mydownload.newdownload.NewDownloadManagerActivity" >
         </activity>
         <activity android:name="demo.mydownload.TestVideoActivity" >
         </activity>
-        <activity android:name="demo.mydownload.IndexActivity"></activity>
+        <activity android:name="demo.mydownload.IndexActivity" >
+        </activity>
+        <activity
+            android:name="org.jq.nbz.RunPackageActivity"
+            android:label="@string/title_activity_run_package" 
+            android:theme="@style/Transparent">
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" >

@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/install"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -17,7 +17,7 @@
         android:id="@+id/download_bt"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignBottom="@+id/install"
         android:layout_alignParentRight="true"
         android:layout_marginRight="31dp"
         android:text="下载" />
@@ -26,9 +26,9 @@
         android:id="@+id/download_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView1"
+        android:layout_alignTop="@+id/install"
         android:layout_marginLeft="14dp"
-        android:layout_toRightOf="@+id/imageView1"
+        android:layout_toRightOf="@+id/install"
         android:text="" />
 
 </RelativeLayout>

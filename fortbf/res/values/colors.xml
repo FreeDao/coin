@@ -13,4 +13,5 @@
     <color name="gray">#ff8aaef2</color>
     <color name="more_color">#ff3b3b3b</color>
     <color name="text_hint_color">#ff9c9d9d</color>
+    <color name = "transparent" > #9000 </color>
 </resources>

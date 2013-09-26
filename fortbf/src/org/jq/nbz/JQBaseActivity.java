@@ -18,9 +18,6 @@ public class JQBaseActivity extends Activity {
 	public List<PackageInfo> scanInstalledPackage(){
 		PackageManager pm=getPackageManager();
 		List<PackageInfo> pinfoList=pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
-		for(PackageInfo info : pinfoList){
-			Log.e("qq", info.packageName);
-		}
 		return pinfoList;
 	}
 }

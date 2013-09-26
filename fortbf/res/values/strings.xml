@@ -219,5 +219,6 @@
     <string name="title_activity_init">InitActivity</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_run_package">开始体验啦！</string>
 
 </resources>

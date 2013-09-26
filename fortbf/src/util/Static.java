@@ -21,12 +21,15 @@ import com.alibaba.fastjson.JSON;
 
 public class Static {
 
+	public static class share{
+		public static DownloadTask currentDownLoad=null;
+	}
 	
 	public interface callBack<T>{
 		T run(String... args);
 	}
 	
-	public static String baseUrl="http://192.168.1.10:8000/";
+	public static String baseUrl="http://192.168.0.104:8000/";
 	public static Context appContext;
 	public static String loaclPth;
 	public static ArrayList<WallpaperTask> wallTasks;
