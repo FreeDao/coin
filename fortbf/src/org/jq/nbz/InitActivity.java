@@ -25,7 +25,7 @@ public class InitActivity extends JQBaseActivity {
 
 	public void makeDir() {
 		File root = Environment.getExternalStorageDirectory();
-		File dir = new File(root.getAbsolutePath() + "/zhuomiandaren");
+		File dir = new File(root.getAbsolutePath() + "/zmdr");
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}

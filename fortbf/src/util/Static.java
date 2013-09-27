@@ -18,18 +18,20 @@ import android.content.Context;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
+import com.hust.iprai.wen.home.LikeActivity.DownLoadAdapter;
 
 public class Static {
 
 	public static class share{
 		public static DownloadTask currentDownLoad=null;
+		public static DownLoadAdapter downLoadAdapter=null;
 	}
 	
 	public interface callBack<T>{
 		T run(String... args);
 	}
 	
-	public static String baseUrl="http://192.168.0.104:8000/";
+	public static String baseUrl="http://192.168.1.10:8000/";
 	public static Context appContext;
 	public static String loaclPth;
 	public static ArrayList<WallpaperTask> wallTasks;
@@ -134,6 +136,26 @@ public class Static {
 				Log.e("qq", e.toString());
 			}
 			return res;
+		}
+	};
+	
+	public static callBack<Httpres> addDownload=new callBack<Httpres>() {
+
+		@SuppressWarnings("deprecation")
+		@Override
+		public Httpres run(String... args) {
+			HashMap<String, String> map=new HashMap<String, String>();
+			map.put("uid", BaseModel.getDeviceId(appContext));
+			map.put("packagename", URLEncoder.encode(args[0]));
+			HttpRequester request=new HttpRequester();
+			try {
+				HttpRespons response=request.sendGet(baseUrl+"adddownload",map);
+				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+				return httpres;
+			} catch (Exception e) {
+				Log.e("qq", e.toString());
+				return null;
+			}
 		}
 	};
 }

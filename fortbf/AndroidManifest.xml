@@ -95,7 +95,8 @@
         <activity
             android:name="org.jq.nbz.RunPackageActivity"
             android:label="@string/title_activity_run_package" 
-            android:theme="@style/Transparent">
+            android:theme="@style/Transparent"
+            android:launchMode="singleInstance">
         </activity>
     </application>
 

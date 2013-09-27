@@ -2,12 +2,15 @@ package org.jq.nbz;
 
 import java.util.List;
 
+import org.jq.model.Httpres;
+
 import util.Static;
 import util.Tool;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,9 +20,9 @@ import android.widget.Toast;
 
 public class RunPackageActivity extends Activity {
 
-	public static int TYPE_DOWNLOAD=0;
-	public static int TYPE_SIGN=1;
-	
+	public static int TYPE_DOWNLOAD = 0;
+	public static int TYPE_SIGN = 1;
+
 	ImageButton playBtn;
 	boolean isListening = false;
 	long time = 0;
@@ -31,10 +34,17 @@ public class RunPackageActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_run_package);
 		initView();
+		if (t != null) {
+			try {
+				t.stop();
+			} finally {
+				t = null;
+			}
+		}
 		time = 0;
 		starttime = 0;
-		t = null;
 		isListening = false;
+
 	}
 
 	@Override
@@ -108,8 +118,10 @@ public class RunPackageActivity extends Activity {
 					: 0;
 			if (Math.abs(time2 - time1) < 10000) {
 				if (Math.max(time1, time2) >= Static.share.currentDownLoad.playtime * 1000) {
-					Toast.makeText(RunPackageActivity.this, "获取奖励成功！", 1)
-							.show();
+					Static.downTasks.remove(Static.share.currentDownLoad);
+					Static.share.downLoadAdapter.refresh();
+					Static.share.downLoadAdapter.notifyDataSetChanged();
+					addDownload.execute(Static.share.currentDownLoad.packagename);
 				}
 			}
 		}
@@ -123,4 +135,20 @@ public class RunPackageActivity extends Activity {
 			startListen();
 		}
 	}
+	
+	AsyncTask<String, Void, Httpres> addDownload=new AsyncTask<String, Void, Httpres>(){
+		
+		@Override
+		protected Httpres doInBackground(String... params) {
+			return Static.addDownload.run(params[0]);
+		}
+		
+		protected void onPostExecute(Httpres result) {
+			if(result.code==0){
+				Toast.makeText(getApplicationContext(), "成功获得奖励", 0).show();
+				finish();
+			}
+		}
+		
+	};
 }

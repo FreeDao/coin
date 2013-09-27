@@ -5,6 +5,7 @@ import org.jq.nbz.R;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -21,7 +22,7 @@ public class HomeActivity extends ActivityGroup {
 	private static final String CURRENT_PAGE = "current_page";
 	private static final String HOME_LIKE_ID = "like";
 	private static final String HOME_MARK_ID = "mark"; 
-
+	int lastid=R.id.home_bt_like;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,7 +33,11 @@ public class HomeActivity extends ActivityGroup {
 		mButtonLike.setOnClickListener(MyClickListener);
 		mButtonMark.setOnClickListener(MyClickListener);
 		
-		switchPages(R.id.home_bt_like);
+	}
+	@Override
+	protected void onResume() {
+		super.onResume();
+		switchPages(lastid);
 	}
 	
 	public void addView(String id, Class<?> clazz) {
@@ -58,6 +63,7 @@ public class HomeActivity extends ActivityGroup {
 	}
 
 	protected void switchPages(int viewId) {
+		lastid=viewId;
 		switch(viewId) {
 		case R.id.home_bt_like:
 			addView(HOME_LIKE_ID, LikeActivity.class);

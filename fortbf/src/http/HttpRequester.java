@@ -142,6 +142,7 @@ public class HttpRequester {
 			}
 			urlString += param;
 		}
+		Log.i("qq", urlString);
 		URL url = new URL(urlString);
 
 		urlConnection = (HttpURLConnection) url.openConnection();

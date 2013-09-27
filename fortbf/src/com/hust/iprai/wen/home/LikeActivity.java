@@ -18,6 +18,7 @@ import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -49,11 +50,12 @@ public class LikeActivity extends JQBaseActivity {
 
 	public void setData() {
 		adapter = new DownLoadAdapter();
+		Static.share.downLoadAdapter=adapter;
 		listview.setAdapter(adapter);
 		loading.setVisibility(View.GONE);
 	}
 
-	class DownLoadAdapter extends BaseAdapter {
+	public class DownLoadAdapter extends BaseAdapter {
 		ArrayList<DownloadTask> dataArr=new ArrayList<DownloadTask>();
 		public DownLoadAdapter() {
 			refresh();
@@ -95,7 +97,7 @@ public class LikeActivity extends JQBaseActivity {
 		@Override
 		public View getView(int arg0, View arg1, ViewGroup arg2) {
 			final DownloadTask data = dataArr.get(arg0);
-			View v = arg1;
+			View v =null;//= arg1;
 			if (v == null) {
 				v = View.inflate(LikeActivity.this, R.layout.download_item,
 						null);
@@ -106,7 +108,7 @@ public class LikeActivity extends JQBaseActivity {
 			final Button btn = (Button) v.findViewById(R.id.downbtn);
 			final Button play =(Button)v.findViewById(R.id.play);
 			if(data.downpercent<100){
-				btn.setVisibility(View.VISIBLE);
+				btn.setAlpha(1);
 				play.setVisibility(View.GONE);
 			}else{
 				play.setVisibility(View.VISIBLE);
@@ -115,6 +117,8 @@ public class LikeActivity extends JQBaseActivity {
 			final ProgressBar progress = (ProgressBar) v
 					.findViewById(R.id.download_progressBar);
 			progress.setMax(100);
+			progress.setProgress(data.downpercent);
+			btn.setText("обть");
 			btn.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -174,5 +178,10 @@ public class LikeActivity extends JQBaseActivity {
 			return v;
 		}
 
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		Log.e("qq", "post now!");
 	}
 }
