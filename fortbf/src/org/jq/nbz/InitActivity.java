@@ -2,11 +2,15 @@ package org.jq.nbz;
 
 import java.io.File;
 
+import org.jq.model.WallpaperTask;
+
 import util.Static;
+import util.Tool;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.hust.iprai.wen.TiebaActivity;
@@ -21,7 +25,7 @@ public class InitActivity extends JQBaseActivity {
 		Static.appContext = getApplicationContext();
 		makeDir();
 		checkNet.execute();
-		//scanInstalledPackage();
+		// scanInstalledPackage();
 		startService(new Intent(InitActivity.this, StarLockService.class));
 	}
 
@@ -62,22 +66,29 @@ public class InitActivity extends JQBaseActivity {
 		};
 	};
 
-	AsyncTask<Void, Void, Integer> getTasks=new AsyncTask<Void, Void, Integer>(){
+	AsyncTask<Void, Void, Integer> getTasks = new AsyncTask<Void, Void, Integer>() {
 
 		@Override
 		protected Integer doInBackground(Void... params) {
-			Static.downTasks=Static.getDownLoadTask.run("");
-			Static.signTasks=Static.getSignTask.run("");
-			Static.wallTasks=Static.getWallpaperTask.run("");
+			Static.downTasks = Static.getDownLoadTask.run("");
+			Static.signTasks = Static.getSignTask.run("");
+			Static.wallTasks = Static.getWallpaperTask.run("");
+			for (WallpaperTask task : Static.wallTasks) {
+				try {
+					task.bindImage.execute();
+				} catch (Exception e) {
+					Log.e("qq", e.toString());
+				}			}
+			Tool.saveObj(System.currentTimeMillis()+"", Static.wallTasks);
 			return 0;
 		}
-		
+
 		protected void onPostExecute(Integer result) {
-			Intent it=new Intent();
+			Intent it = new Intent();
 			it.setClass(InitActivity.this, TiebaActivity.class);
 			startActivity(it);
 			finish();
 		}
 	};
-	
+
 }

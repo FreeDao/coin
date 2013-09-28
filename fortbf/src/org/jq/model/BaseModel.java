@@ -72,5 +72,16 @@ public abstract class BaseModel implements Serializable {
 		}
 		return pth;
 	}
+	
+	public static String getCachedIcon(String url) {
+		String pth = null;
+		String fname = "" + url.hashCode();
+		String base = Static.loaclPth + "/";
+		File aim = new File(base + fname);
+		if (aim.exists()) {
+			pth = aim.getAbsolutePath();
+		} 
+		return pth;
+	}
 
 }

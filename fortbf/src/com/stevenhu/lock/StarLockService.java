@@ -162,7 +162,7 @@ public class StarLockService extends Service implements MediaControl
 	//锁屏界面时隐藏音乐播放信息
 	private void setLockViewText()
 	{
-		MainActivity.mStatusViewManager.mArtistView.setText(null);
+		//MainActivity.mStatusViewManager.mArtistView.setText(null);
 	}
 	
 	@Override

@@ -184,4 +184,174 @@ public class Static {
 			}
 		}
 	};
+	
+	public static callBack<Httpres> addWallpaper=new callBack<Httpres>() {
+
+		@SuppressWarnings("deprecation")
+		@Override
+		public Httpres run(String... args) {
+			HashMap<String, String> map=new HashMap<String, String>();
+			map.put("uid", BaseModel.getDeviceId(appContext));
+			map.put("wallpapername", URLEncoder.encode(args[0]));
+			map.put("lorr", URLEncoder.encode(args[1]));// 0:left, 1:right
+
+			HttpRequester request=new HttpRequester();
+			try {
+				HttpRespons response=request.sendGet(baseUrl+"addWallpaper",map);
+				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+				return httpres;
+			} catch (Exception e) {
+				Log.e("qq", e.toString());
+				return null;
+			}
+		}
+	};
+	
+	public static void reinit(){
+		reg=new callBack<Httpres>() {
+
+			@SuppressWarnings("deprecation")
+			@Override
+			public Httpres run(String... args) {
+				HashMap<String, String> map=new HashMap<String, String>();
+				map.put("uid", BaseModel.getDeviceId(appContext));
+				map.put("uname", URLEncoder.encode(args[0]));
+				map.put("upwd", URLEncoder.encode(args[1]));
+				HttpRequester request=new HttpRequester();
+				try {
+					HttpRespons response=request.sendGet(baseUrl+"addDevice",map);
+					Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+					return httpres;
+				} catch (Exception e) {
+					Log.e("qq", e.toString());
+					return null;
+				}
+			}
+		};
+		
+		getDownLoadTask=new callBack<ArrayList<DownloadTask>>() {
+
+			@Override
+			public ArrayList<DownloadTask> run(String... args) {
+				ArrayList<DownloadTask> res=new ArrayList<DownloadTask>();
+				HttpRequester request=new HttpRequester();
+				HashMap<String, String> map=new HashMap<String, String>();
+				map.put("uid", BaseModel.getDeviceId(appContext));
+				HttpRespons response;
+				try {
+					response = request.sendGet(baseUrl+"getDownTask",map);
+					Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+					res.addAll(JSON.parseArray(httpres.message, DownloadTask.class));
+				} catch (IOException e) {
+					e.printStackTrace();
+					Log.e("qq", e.toString());
+				}
+				return res;
+			}
+		};
+		
+		getSignTask=new callBack<ArrayList<SignTask>>() {
+
+			@Override
+			public ArrayList<SignTask> run(String... args) {
+				ArrayList<SignTask> res=new ArrayList<SignTask>();
+				HttpRequester request=new HttpRequester();
+				HashMap<String, String> map=new HashMap<String, String>();
+				map.put("uid", BaseModel.getDeviceId(appContext));
+				HttpRespons response;
+				try {
+					response = request.sendGet(baseUrl+"getSignTask",map);
+					Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+					res.addAll(JSON.parseArray(httpres.message, SignTask.class));
+				} catch (IOException e) {
+					e.printStackTrace();
+					Log.e("qq", e.toString());
+				}
+				return res;
+			}
+		};
+		getWallpaperTask=new callBack<ArrayList<WallpaperTask>>() {
+
+			@Override
+			public ArrayList<WallpaperTask> run(String... args) {
+				ArrayList<WallpaperTask> res=new ArrayList<WallpaperTask>();
+				HttpRequester request=new HttpRequester();
+				HashMap<String, String> map=new HashMap<String, String>();
+				map.put("uid", BaseModel.getDeviceId(appContext));
+				HttpRespons response;
+				try {
+					response = request.sendGet(baseUrl+"getWallPaperTask",map);
+					Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+					res.addAll(JSON.parseArray(httpres.message, WallpaperTask.class));
+				} catch (IOException e) {
+					e.printStackTrace();
+					Log.e("qq", e.toString());
+				}
+				return res;
+			}
+		};
+		
+		addWallpaper=new callBack<Httpres>() {
+
+			@SuppressWarnings("deprecation")
+			@Override
+			public Httpres run(String... args) {
+				HashMap<String, String> map=new HashMap<String, String>();
+				map.put("uid", BaseModel.getDeviceId(appContext));
+				map.put("wallpapername", URLEncoder.encode(args[0]));
+				map.put("lorr", URLEncoder.encode(args[1]));// 0:left, 1:right
+
+				HttpRequester request=new HttpRequester();
+				try {
+					HttpRespons response=request.sendGet(baseUrl+"addWallpaper",map);
+					Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+					return httpres;
+				} catch (Exception e) {
+					Log.e("qq", e.toString());
+					return null;
+				}
+			}
+		};
+		
+		addSign=new callBack<Httpres>() {
+
+			@SuppressWarnings("deprecation")
+			@Override
+			public Httpres run(String... args) {
+				HashMap<String, String> map=new HashMap<String, String>();
+				map.put("uid", BaseModel.getDeviceId(appContext));
+				map.put("packagename", URLEncoder.encode(args[0]));
+				HttpRequester request=new HttpRequester();
+				try {
+					HttpRespons response=request.sendGet(baseUrl+"addSign",map);
+					Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+					return httpres;
+				} catch (Exception e) {
+					Log.e("qq", e.toString());
+					return null;
+				}
+			}
+		};
+		
+		addDownload=new callBack<Httpres>() {
+
+			@SuppressWarnings("deprecation")
+			@Override
+			public Httpres run(String... args) {
+				HashMap<String, String> map=new HashMap<String, String>();
+				map.put("uid", BaseModel.getDeviceId(appContext));
+				map.put("packagename", URLEncoder.encode(args[0]));
+				HttpRequester request=new HttpRequester();
+				try {
+					HttpRespons response=request.sendGet(baseUrl+"adddownload",map);
+					Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+					return httpres;
+				} catch (Exception e) {
+					Log.e("qq", e.toString());
+					return null;
+				}
+			}
+		};
+		
+	}
 }

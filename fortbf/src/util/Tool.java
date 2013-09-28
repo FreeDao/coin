@@ -1,9 +1,12 @@
 package util;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -11,6 +14,8 @@ import java.net.URLConnection;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
 
 public class Tool {
 
@@ -62,5 +67,42 @@ public class Tool {
 		intent.setDataAndType(Uri.fromFile(new File(pth)), "application/vnd.android.package-archive");
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		con.startActivity(intent);
+	}
+	
+	public static void saveObj(String fname,Object obj){
+		File root = Environment.getExternalStorageDirectory();
+		File dir = new File(root.getAbsolutePath() + "/zmdr/data");
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+		File f=new File(dir.getAbsolutePath()+"/"+fname);
+		try {
+			ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream(f));
+			out.writeObject(obj);
+			out.close();
+		} catch (Exception e) {
+			Log.e("qq", e.toString());
+		} 
+		
+	}
+	
+	public static Object readObj(String fname){
+		File root = Environment.getExternalStorageDirectory();
+		File dir = new File(root.getAbsolutePath() + "/zmdr/data");
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+		File f=new File(dir.getAbsolutePath()+"/"+fname);
+		
+		Object res=null;
+		try {
+			ObjectInputStream in=new ObjectInputStream(new FileInputStream(f));
+			res=in.readObject();
+			in.close();
+		} catch (Exception e) {
+			Log.e("qq", e.toString());
+		} 
+		
+		return res;
 	}
 }

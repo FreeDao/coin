@@ -21,7 +21,7 @@
     <string name="view_host">只看楼主</string>
     <string name="view_reverse">倒序查看</string>
     <string name="mark">书签</string>
-    <string name="my_mark">经营任务</string>
+    <string name="my_mark">签到任务</string>
     <string name="view_info">查看个人资料</string>
     <string name="grade">级</string>
     <string name="format_grade">%d级</string>

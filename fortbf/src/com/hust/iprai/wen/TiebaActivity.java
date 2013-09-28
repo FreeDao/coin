@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TabHost;
@@ -55,6 +56,8 @@ public class TiebaActivity extends TabActivity implements
 		mMessageTipsPerson = (TextView) findViewById(R.id.message_person);
 		mMessageTipsMention.setText("2");
 		mMessageTipsPerson.setText("4");
+		mMessageTipsMention.setVisibility(View.GONE);
+		mMessageTipsPerson.setVisibility(View.GONE);
 	}
 
 	private void initRadios() {

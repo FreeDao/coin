@@ -109,8 +109,9 @@ def getSignTask(request):
             dic['time']=downtask.time.isoformat()
             now=datetime.now(tz=pytz.utc)
             timespan = timedelta(days=1)
-            delta=downtask.time+timespan-now
-            if delta.days>-1:
+            delta=now-downtask.time
+            dic['intro']='当前第'+str(delta.days+1)+"天"
+            if True or delta.days>-1:
                 apps.append(dic)
         res['message']=json.dumps(apps)
     except:
@@ -174,6 +175,7 @@ def addSign(request):
         delta=now-lasttime
         app=App.objects.get(packagename=package)
         if item.percent<.6 and delta.days==1:
+            print 'run'
             per=.3
             moneyChanged=app.price*per
             item.money=item.money+moneyChanged
@@ -206,6 +208,7 @@ def addSign(request):
         return HttpResponse(json.dumps(res))
     res['code']=0
     res['message']=moneyChanged
+    #res['message']=str(delta.days)
     return HttpResponse(json.dumps(res))
 
 def adddownload(request):
@@ -215,7 +218,7 @@ def adddownload(request):
         package=request.GET['packagename']
     except:
         return HttpResponse(json.dumps(res))
-        #if True:
+    #if True:
     try:
         temp=downloadtask.objects.filter(packagename=package,uid=uid,)
         if len(temp)>0:
@@ -251,24 +254,28 @@ def addWallpaper(request):
         wallpapername=request.GET['wallpapername']
         leftorright=request.GET['lorr']
     except:
+        res['message']='paramerr'
         return HttpResponse(json.dumps(res))
-    #if True:
-    try:
+    if True:
+    #try:
         temp=wallpapertask.objects.filter(wallpapername=wallpapername,uid=uid)
         if len(temp)==0:
             item=wallpapertask()
             item.wallpapername=wallpapername
             item.uid=uid
+            item.lorr=-1
+            item.money=0
+            item.percent=0
             item.save()
         temp=wallpapertask.objects.filter(wallpapername=wallpapername,uid=uid)
         if len(temp)>0:
             item=temp[0]
             paper=Wallpaper.objects.get(name=wallpapername)
             changeMoney=0
-            if leftorright==0:
+            if leftorright=='0':
                 changeMoney=paper.leftprice if (item.money+paper.leftprice<=paper.maxmoney) else (paper.maxmoney-item.money)
             else:
-                changeMoney=paper.leftprice if (item.money+paper.leftprice<=paper.maxmoney) else (paper.maxmoney-item.money)
+                changeMoney=paper.rightprice if (item.money+paper.rightprice<=paper.maxmoney) else (paper.maxmoney-item.money)
             item.money+=changeMoney
             item.percent=item.money/paper.maxmoney
             dev=Device.objects.get(uid=uid)
@@ -276,11 +283,12 @@ def addWallpaper(request):
             dev.save()
             log=record()
             log.uid=uid
-            log.type='wallpaper:'+changeMoney
-            log.amount=item.money
+            log.type='wallpaper:'+wallpapername+str(leftorright)
+            log.amount=changeMoney
             log.save()
-    #else:
-    except:
+            item.save()
+    else:
+    #except:
         return HttpResponse(json.dumps(res))
     res['code']=0
     res['message']=item.money

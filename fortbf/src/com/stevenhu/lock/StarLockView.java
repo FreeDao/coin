@@ -4,6 +4,7 @@ import org.jq.nbz.R;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -17,6 +18,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
+import android.widget.TextView;
 
 public class StarLockView extends ViewGroup implements OnClickListener
 {
@@ -47,7 +49,7 @@ public class StarLockView extends ViewGroup implements OnClickListener
 	private ImageView mCenterView, mAlphaView;
 	private ImageView mSmsLightView, mUnLockLightView,
 	                  mCameraLightView, mDialLightView;
-	
+	public TextView leftTxt,rightTxt;
 	private ImageView mPlayView, mNextView, mPrevView, mStopView;
 
 	private Rect smsRect, dialRect, cameraRect, unlockRect;
@@ -211,6 +213,14 @@ public class StarLockView extends ViewGroup implements OnClickListener
 				(mCenterViewTop + 2 * mCenterViewHeight) - mUnlockViewHalfHeight,
 				mScreenHalfWidth + mUnlockViewHalfWidth,
 				(mCenterViewBottom + mCenterViewHeight) + mUnlockViewHalfHeight);
+		leftTxt.layout(mScreenHalfWidth - mCameraViewHalfWidth+2*mCameraViewHalfWidth, 
+				(mCenterViewTop - mCenterViewHeight) -mHalfCameraViewHeight/2,
+				mScreenHalfWidth + mCameraViewHalfWidth+4*mCameraViewHalfWidth,
+				(mCenterViewBottom - 2 * mCenterViewHeight) + 2*mHalfCameraViewHeight);
+		rightTxt.layout(mScreenHalfWidth - mUnlockViewHalfWidth+2*mUnlockViewHalfWidth, 
+				(mCenterViewTop + 2 * mCenterViewHeight)-mUnlockViewHalfHeight/2 ,
+				mScreenHalfWidth + mUnlockViewHalfWidth+4*mUnlockViewHalfWidth,
+				(mCenterViewBottom + mCenterViewHeight) + 2*mUnlockViewHalfHeight);
 		
 	}
 	
@@ -271,26 +281,27 @@ public class StarLockView extends ViewGroup implements OnClickListener
 
 		mCenterView = new ImageView(context);
 		mCenterView.setImageResource(R.drawable.centure1);
+		mCenterView.setImageAlpha(125);
 		setViewsLayout(mCenterView);
 		mCenterView.setVisibility(View.VISIBLE);
 		
 		mSmsView = new ImageView(context);
-		mSmsView.setImageResource(R.drawable.sms);
+		mSmsView.setImageResource(R.drawable.message);
 		setViewsLayout(mSmsView);
 		mSmsView.setVisibility(View.VISIBLE);
 		
 		mDialView = new ImageView(context);
-		mDialView.setImageResource(R.drawable.dial);
+		mDialView.setImageResource(R.drawable.phone);
 		setViewsLayout(mDialView);
 		mDialView.setVisibility(View.VISIBLE);
 
 		mCameraView = new ImageView(context);
-		mCameraView.setImageResource(R.drawable.camera);
+		mCameraView.setImageResource(R.drawable.web);
 		setViewsLayout(mCameraView);
 		mCameraView.setVisibility(View.VISIBLE);
 	
 		mUnLockView = new ImageView(context);
-		mUnLockView.setImageResource(R.drawable.home);
+		mUnLockView.setImageResource(R.drawable.unlock);
 		setViewsLayout(mUnLockView);
 		mUnLockView.setVisibility(View.VISIBLE);
 		
@@ -334,6 +345,19 @@ public class StarLockView extends ViewGroup implements OnClickListener
 		setLightDrawable(mDialLightView);
 		setViewsLayout(mDialLightView);
 		mDialLightView.setVisibility(INVISIBLE);
+		
+		leftTxt =new TextView(context);
+		leftTxt.setText("free");
+		leftTxt.setTextColor(Color.BLACK);
+		rightTxt=new TextView(context);
+		rightTxt.setText("free");
+		rightTxt.setTextColor(Color.BLACK);
+		leftTxt.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT));
+		rightTxt.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT));
+		addView(leftTxt);
+		addView(rightTxt);
 	}
 
 	private void setLightDrawable(ImageView img)
