@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Handler;
-import android.util.Log;
 
 public class JQBaseActivity extends Activity {
 

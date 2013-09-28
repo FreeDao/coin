@@ -116,12 +116,12 @@ public class MarkActivity extends JQBaseActivity {
 					play.setVisibility(View.VISIBLE);
 					btn.setAlpha(0);
 				}
-			}else{
+			} else {
 				play.setVisibility(View.VISIBLE);
 				btn.setAlpha(0);
 				progress.setAlpha(0);
 			}
-			
+
 			progress.setMax(100);
 			progress.setProgress(data.downpercent);
 			btn.setText("下载");
@@ -168,14 +168,18 @@ public class MarkActivity extends JQBaseActivity {
 				@Override
 				public void onClick(View arg0) {
 					Static.share.currentSignTask = data;
-					Static.share.isCurrentDownload=false;
+					Static.share.isCurrentDownload = false;
 					Intent it = new Intent();
 					it.setClass(MarkActivity.this, RunPackageActivity.class);
 					startActivityForResult(it, RunPackageActivity.TYPE_DOWNLOAD);
 				}
 			});
-			info.setText("下载体验可得" + data.price * .5 + "元");
-			name.setText(data.appname);
+			info.setText("第2、5天签到有奖励！");
+			if (data.intro != null) {
+				name.setText(data.appname+" "+data.intro);
+			} else {
+				name.setText(data.appname);
+			}
 			if (data.iconPth == null) {
 				new ImageBinder(icon, data).execute();
 			} else {

@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.widget.Toast;
 
 import com.hust.iprai.wen.TiebaActivity;
+import com.stevenhu.lock.StarLockService;
 
 public class InitActivity extends JQBaseActivity {
 
@@ -21,6 +22,7 @@ public class InitActivity extends JQBaseActivity {
 		makeDir();
 		checkNet.execute();
 		//scanInstalledPackage();
+		startService(new Intent(InitActivity.this, StarLockService.class));
 	}
 
 	public void makeDir() {

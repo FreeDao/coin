@@ -11,6 +11,7 @@ public class SignTask extends BaseModel implements NetImage{
 	public double price;
 	public double money;
 	public double percent;
+	public String intro;
 	
 	public String iconPth;
 	public boolean hasInstalled=false;

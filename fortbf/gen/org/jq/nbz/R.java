@@ -153,7 +153,7 @@ public final class R {
         public static final int current_progress=0x7f090026;
         public static final int date=0x7f09002c;
         public static final int delete_movie=0x7f090011;
-        public static final int downbtn=0x7f090017;
+        public static final int downbtn=0x7f090015;
         public static final int download_bt=0x7f090028;
         public static final int download_listview=0x7f090004;
         public static final int download_listview_lin=0x7f090056;
@@ -199,8 +199,8 @@ public final class R {
         public static final int mention_progress_replyme=0x7f090040;
         public static final int message_mention=0x7f090035;
         public static final int message_person=0x7f090036;
-        public static final int movie_file_size=0x7f090016;
-        public static final int movie_headiamge_checkbox=0x7f090015;
+        public static final int movie_file_size=0x7f090017;
+        public static final int movie_headiamge_checkbox=0x7f090016;
         public static final int movie_headimage=0x7f090023;
         public static final int movie_name_item=0x7f090024;
         public static final int music=0x7f09002e;

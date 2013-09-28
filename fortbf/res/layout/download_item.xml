@@ -50,11 +50,12 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="2dp"
             android:layout_toRightOf="@+id/appicon"
+            android:layout_toLeftOf="@+id/downbtn"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="name"
             android:textColor="#333333"
-            android:textSize="14dp" />
+            android:textSize="10dp" />
 
         <CheckBox
             android:id="@+id/movie_headiamge_checkbox"

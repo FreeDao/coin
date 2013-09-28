@@ -10,6 +10,8 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +31,7 @@ public class RunPackageActivity extends Activity {
 	long starttime = 0;
 	Thread t;
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -110,10 +113,12 @@ public class RunPackageActivity extends Activity {
 		} else {
 			if (Static.share.currentSignTask.hasInstalled) {
 				playBtn.setOnClickListener(new OnClickListener() {
-					
+
 					@Override
 					public void onClick(View arg0) {
-						
+						PackageManager manager=getPackageManager();
+						Intent it=manager.getLaunchIntentForPackage(Static.share.currentSignTask.packagename);
+						startActivity(it);
 					}
 				});
 			} else {
@@ -149,7 +154,7 @@ public class RunPackageActivity extends Activity {
 					}
 				} else {
 					if (Math.max(time1, time2) >= Static.share.currentSignTask.playtime * 1000) {
-						Static.downTasks.remove(Static.share.currentSignTask);
+						//Static.signTasks.remove(Static.share.currentSignTask);
 						Static.share.signAdapter.refresh();
 						Static.share.signAdapter.notifyDataSetChanged();
 						addSign.execute(Static.share.currentSignTask.packagename);
@@ -193,7 +198,13 @@ public class RunPackageActivity extends Activity {
 
 		protected void onPostExecute(Httpres result) {
 			if (result.code == 0) {
-				Toast.makeText(getApplicationContext(), "成功获得签到奖励"+result.message, 0).show();
+				if (result.message.equals("0")) {
+					Toast.makeText(getApplicationContext(),
+							"签到成功！第二、第五天签到有奖励哦", 0).show();
+				} else {
+					Toast.makeText(getApplicationContext(),
+							"成功获得签到奖励" + result.message, 1).show();
+				}
 				finish();
 			}
 		}
