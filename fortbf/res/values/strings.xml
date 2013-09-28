@@ -141,7 +141,7 @@
     <string name="vcode_change_image">点击验证码图片换一张</string>
     <string name="video">视频:</string>
     <string name="change">修改</string>
-    <string name="person_info">个人资料</string>
+    <string name="person_info">赚钱记录</string>
     <string name="bar">任务</string>
     <string name="remind">提现</string>
     <string name="content">内容</string>
@@ -220,5 +220,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_run_package">开始体验啦！</string>
+    <string name="title_activity_pay_request">PayRequest</string>
+    <string name="title_activity_pay_record">PayRecordActivity</string>
 
 </resources>

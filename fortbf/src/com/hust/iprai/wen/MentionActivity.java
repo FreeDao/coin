@@ -1,18 +1,122 @@
 package com.hust.iprai.wen;
 
+import org.jq.nbz.PayRecordActivity;
+import org.jq.nbz.PayRequest;
 import org.jq.nbz.R;
 
-import android.app.Activity;
+import android.app.ActivityGroup;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
-public class MentionActivity extends Activity {
+import com.hust.iprai.wen.home.LikeActivity;
+import com.hust.iprai.wen.home.MarkActivity;
 
+@SuppressWarnings("deprecation")
+public class MentionActivity extends ActivityGroup {
+	
+	private FrameLayout mContent;
+	private Button mButtonLike;
+	private Button mButtonMark;
+	private static final String CURRENT_PAGE = "current_page";
+	private static final String HOME_LIKE_ID = "like";
+	private static final String HOME_MARK_ID = "mark"; 
+	int lastid=R.id.home_bt_like;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.mention_activity);
+		setContentView(R.layout.pay_activity);
+		mContent = (FrameLayout) findViewById(R.id.content);
+		mButtonLike = (Button) findViewById(R.id.home_bt_like);
+		mButtonMark = (Button) findViewById(R.id.home_bt_mark);
+		mButtonLike.setOnClickListener(MyClickListener);
+		mButtonMark.setOnClickListener(MyClickListener);
+		
 	}
+	@Override
+	protected void onResume() {
+		super.onResume();
+		switchPages(lastid);
+	}
+	
+	public void addView(String id, Class<?> clazz) {
+		Intent intent = new Intent(this, clazz);
+		mContent.removeAllViews();
+		mContent.addView(getLocalActivityManager().startActivity(id, intent).getDecorView());
+	}
+	
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		outState.putString(CURRENT_PAGE, getLocalActivityManager().getCurrentId());
+		super.onSaveInstanceState(outState);
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		String currentPage = savedInstanceState.getString(CURRENT_PAGE);
+		if ((currentPage != null) && (currentPage.equals(HOME_MARK_ID))) {
+			switchPages(R.id.home_bt_mark);
+		}
+	}
+
+	protected void switchPages(int viewId) {
+		lastid=viewId;
+		switch(viewId) {
+		case R.id.home_bt_like:
+			addView(HOME_LIKE_ID, PayRequest.class);
+			mButtonLike.setBackgroundResource(R.drawable.home_topbar_bt);
+			//mButtonLike.setImageResource(R.drawable.home_bt_like_on);
+			mButtonMark.setBackgroundDrawable(null);
+			//mButtonMark.setImageResource(R.drawable.home_bt_mark);
+			break;
+		case R.id.home_bt_mark:
+			addView(HOME_MARK_ID, PayRecordActivity.class);
+			mButtonMark.setBackgroundResource(R.drawable.home_topbar_bt);
+			//mButtonMark.setImageResource(R.drawable.home_bt_mark_on);
+			mButtonLike.setBackgroundDrawable(null);
+			//mButtonLike.setImageResource(R.drawable.home_bt_like);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	private View.OnClickListener MyClickListener = new View.OnClickListener() {
+		
+		public void onClick(View v) {
+			switchPages(v.getId());
+		}
+	};
 	
 	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

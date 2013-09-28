@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -94,8 +95,8 @@ public class MainActivity extends Activity {
 						}
 					};
 					task2.execute();
+					launchCamera();
 				}
-				launchCamera();
 				finish();
 				break;
 			}
@@ -127,14 +128,19 @@ public class MainActivity extends Activity {
 
 	// 启动相机应用
 	private void launchCamera() {
-		Intent intent = new Intent();
-		ComponentName comp = new ComponentName("com.android.camera",
-				"com.android.camera.Camera");
-		intent.setComponent(comp);
-		intent.setAction("android.intent.action.VIEW");
-		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-				| Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-		startActivity(intent);
+		// Intent intent = new Intent();
+		// ComponentName comp = new ComponentName("com.android.camera",
+		// "com.android.camera.Camera");
+		// intent.setComponent(comp);
+		// intent.setAction("android.intent.action.VIEW");
+		// intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+		// | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+		// startActivity(intent);
+		if (!Tool.isEmpty(wtask.url)) {
+		      Intent intent = new Intent(Intent.ACTION_VIEW);
+		      intent.setData(Uri.parse(wtask.url));
+		      startActivity(intent);
+		}
 	}
 
 	// 使home物理键失效

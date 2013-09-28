@@ -12,7 +12,7 @@ public class WallpaperTask extends BaseModel{
 	public double rightprice;
 	public double maxmoney;
 	public double percent;
-	
+	public String url;
 	public String imgPth;
 	
 	
