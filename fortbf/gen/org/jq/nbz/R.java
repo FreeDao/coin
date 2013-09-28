@@ -253,6 +253,7 @@ public final class R {
         public static final int more_activity=0x7f03000f;
         public static final int new_activity_download_manager=0x7f030010;
         public static final int person_info_activity=0x7f030011;
+        public static final int sign_item=0x7f030012;
     }
     public static final class menu {
         public static final int init=0x7f080000;

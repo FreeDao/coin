@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp" >
+
+    <ImageView 
+        android:id="@+id/delete_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/coin"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="12dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/delete_movie" >
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:id="@+id/appicon"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/default_icon" />
+
+        <TextView
+            android:id="@+id/apkname"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/appicon"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/appicon"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="name"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apkname"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@+id/appicon"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="name"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+
+        <CheckBox
+            android:id="@+id/movie_headiamge_checkbox"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_alignLeft="@+id/appicon"
+            android:layout_alignTop="@+id/appicon"
+            android:layout_marginLeft="0.5dp"
+            android:button="@drawable/movie_headimage_selector"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/movie_file_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/apkname"
+            android:layout_below="@+id/apkname"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#23b5bc"
+            android:layout_marginTop="2dp"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/downbtn"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/appicon"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dip"
+            android:text="下载"
+            android:textSize="18dp" />
+        <Button
+            android:id="@+id/play"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/appicon"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dip"
+            android:text="立即体验"
+            android:textSize="18dp" 
+            android:visibility="gone"/>
+        
+		<ProgressBar
+            android:id="@+id/download_progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="100dp"
+            android:layout_height="4dp"
+            android:layout_alignBottom="@+id/appicon"
+            android:layout_alignLeft="@+id/downbtn"
+            android:layout_alignRight="@+id/downbtn"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/appicon"
+            android:progressDrawable="@drawable/progress_bg" />
+        <TextView
+            android:id="@+id/totalsize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/movie_file_size"
+            android:layout_alignBottom="@+id/movie_file_size"
+            android:layout_alignRight="@+id/apkname"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#23b5bc"
+            android:textSize="10dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

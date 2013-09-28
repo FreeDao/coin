@@ -162,6 +162,7 @@ public class LikeActivity extends JQBaseActivity {
 				@Override
 				public void onClick(View arg0) {
 					Static.share.currentDownLoad=data;
+					Static.share.isCurrentDownload=true;
 					Intent it=new Intent();
 					it.setClass(LikeActivity.this, RunPackageActivity.class);
 					startActivityForResult(it, RunPackageActivity.TYPE_DOWNLOAD);

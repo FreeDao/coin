@@ -71,11 +71,12 @@ public class RunPackageActivity extends Activity {
 		t = new Thread() {
 			public void run() {
 				while (isListening) {
+					String packagename = Static.share.isCurrentDownload ? Static.share.currentDownLoad.packagename
+							: Static.share.currentSignTask.packagename;
 					List<RunningAppProcessInfo> apps = am
 							.getRunningAppProcesses();
 					for (RunningAppProcessInfo info : apps) {
-						if (info.processName
-								.equals(Static.share.currentDownLoad.packagename)) {
+						if (info.processName.equals(packagename)) {
 							if (time == 0) {
 								starttime = System.currentTimeMillis();
 							}
@@ -83,8 +84,7 @@ public class RunPackageActivity extends Activity {
 							break;
 						}
 					}
-					Log.e("qq", "check: "
-							+ Static.share.currentDownLoad.packagename);
+					Log.e("qq", "check: " + packagename);
 					try {
 						Thread.sleep(5000);
 					} catch (InterruptedException e) {
@@ -98,30 +98,62 @@ public class RunPackageActivity extends Activity {
 
 	private void initView() {
 		playBtn = (ImageButton) findViewById(R.id.play);
-		playBtn.setOnClickListener(new OnClickListener() {
+		if (Static.share.isCurrentDownload) {
+			playBtn.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				Tool.install(RunPackageActivity.this,
-						Static.share.currentDownLoad.apkPth);
+				@Override
+				public void onClick(View v) {
+					Tool.install(RunPackageActivity.this,
+							Static.share.currentDownLoad.apkPth);
+				}
+			});
+		} else {
+			if (Static.share.currentSignTask.hasInstalled) {
+				playBtn.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View arg0) {
+						
+					}
+				});
+			} else {
+				playBtn.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						Tool.install(RunPackageActivity.this,
+								Static.share.currentSignTask.apkPth);
+					}
+				});
 			}
-		});
+		}
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		initView();
 		if (isListening) {
 			isListening = false;
 			long time1 = time * 1000;
 			long time2 = starttime > 0 ? System.currentTimeMillis() - starttime
 					: 0;
 			if (Math.abs(time2 - time1) < 10000) {
-				if (Math.max(time1, time2) >= Static.share.currentDownLoad.playtime * 1000) {
-					Static.downTasks.remove(Static.share.currentDownLoad);
-					Static.share.downLoadAdapter.refresh();
-					Static.share.downLoadAdapter.notifyDataSetChanged();
-					addDownload.execute(Static.share.currentDownLoad.packagename);
+				if (Static.share.isCurrentDownload) {
+					if (Math.max(time1, time2) >= Static.share.currentDownLoad.playtime * 1000) {
+						Static.downTasks.remove(Static.share.currentDownLoad);
+						Static.share.downLoadAdapter.refresh();
+						Static.share.downLoadAdapter.notifyDataSetChanged();
+						addDownload
+								.execute(Static.share.currentDownLoad.packagename);
+					}
+				} else {
+					if (Math.max(time1, time2) >= Static.share.currentSignTask.playtime * 1000) {
+						Static.downTasks.remove(Static.share.currentSignTask);
+						Static.share.signAdapter.refresh();
+						Static.share.signAdapter.notifyDataSetChanged();
+						addSign.execute(Static.share.currentSignTask.packagename);
+					}
 				}
 			}
 		}
@@ -135,20 +167,36 @@ public class RunPackageActivity extends Activity {
 			startListen();
 		}
 	}
-	
-	AsyncTask<String, Void, Httpres> addDownload=new AsyncTask<String, Void, Httpres>(){
-		
+
+	AsyncTask<String, Void, Httpres> addDownload = new AsyncTask<String, Void, Httpres>() {
+
 		@Override
 		protected Httpres doInBackground(String... params) {
 			return Static.addDownload.run(params[0]);
 		}
-		
+
 		protected void onPostExecute(Httpres result) {
-			if(result.code==0){
-				Toast.makeText(getApplicationContext(), "成功获得奖励", 0).show();
+			if (result.code == 0) {
+				Toast.makeText(getApplicationContext(), "成功获得下载奖励", 0).show();
 				finish();
 			}
 		}
-		
+
+	};
+
+	AsyncTask<String, Void, Httpres> addSign = new AsyncTask<String, Void, Httpres>() {
+
+		@Override
+		protected Httpres doInBackground(String... params) {
+			return Static.addSign.run(params[0]);
+		}
+
+		protected void onPostExecute(Httpres result) {
+			if (result.code == 0) {
+				Toast.makeText(getApplicationContext(), "成功获得签到奖励"+result.message, 0).show();
+				finish();
+			}
+		}
+
 	};
 }

@@ -19,12 +19,18 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.hust.iprai.wen.home.LikeActivity.DownLoadAdapter;
+import com.hust.iprai.wen.home.MarkActivity.SignAdapter;
 
 public class Static {
 
 	public static class share{
+		public static boolean isCurrentDownload;
+		
 		public static DownloadTask currentDownLoad=null;
 		public static DownLoadAdapter downLoadAdapter=null;
+		
+		public static SignTask currentSignTask=null;
+		public static SignAdapter signAdapter=null;
 	}
 	
 	public interface callBack<T>{
@@ -150,6 +156,26 @@ public class Static {
 			HttpRequester request=new HttpRequester();
 			try {
 				HttpRespons response=request.sendGet(baseUrl+"adddownload",map);
+				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+				return httpres;
+			} catch (Exception e) {
+				Log.e("qq", e.toString());
+				return null;
+			}
+		}
+	};
+	
+	public static callBack<Httpres> addSign=new callBack<Httpres>() {
+
+		@SuppressWarnings("deprecation")
+		@Override
+		public Httpres run(String... args) {
+			HashMap<String, String> map=new HashMap<String, String>();
+			map.put("uid", BaseModel.getDeviceId(appContext));
+			map.put("packagename", URLEncoder.encode(args[0]));
+			HttpRequester request=new HttpRequester();
+			try {
+				HttpRespons response=request.sendGet(baseUrl+"addSign",map);
 				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
 				return httpres;
 			} catch (Exception e) {

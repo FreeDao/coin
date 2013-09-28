@@ -2,7 +2,7 @@ package org.jq.model;
 
 import android.os.AsyncTask;
 
-public class DownloadTask extends BaseModel{
+public class DownloadTask extends BaseModel implements NetImage{
 
 	private static final long serialVersionUID = 4586400159230078146L;
 
@@ -27,4 +27,12 @@ public class DownloadTask extends BaseModel{
 			return getIcon(icon);
 		};
 	};
+	@Override
+	public String getImgUrl() {
+		return icon;
+	}
+	@Override
+	public void SetCachePth(String pth) {
+		iconPth=pth;
+	}
 }
