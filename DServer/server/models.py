@@ -25,12 +25,14 @@ class Wallpaper(models.Model):
     leftprice=models.FloatField()
     rightprice=models.FloatField()
     maxmoney=models.FloatField()
+    url=models.CharField(max_length=100)
+
     def __unicode__(self):
         return self.name
 
 class WallpaperAdmin(admin.ModelAdmin):
-    list_display = ('name','leftprice','rightprice','maxmoney')
-    search_fields = ('name','leftprice','rightprice','maxmoney')
+    list_display = ('name','leftprice','rightprice','maxmoney','url')
+    search_fields = ('name','leftprice','rightprice','maxmoney','url')
 
 admin.site.register(Wallpaper,WallpaperAdmin)
 
@@ -53,6 +55,8 @@ class Device(models.Model):
     uid=models.CharField(max_length=50,unique=True)
     uname=models.CharField(max_length=30)
     money=models.FloatField()
+    downloadcount=models.IntegerField(default=0)
+    fathername=models.CharField(max_length=30)
     def __unicode__(self):
         return self.uid
 
@@ -130,3 +134,16 @@ class recordAdmin(admin.ModelAdmin):
 
 admin.site.register(record,recordAdmin)
 
+#apks
+class spread(models.Model):
+    uid=models.CharField(max_length=50)
+    fid=models.CharField(max_length=100)
+    fpth=models.FloatField()
+    def __unicode__(self):
+        return self.uid
+
+class spreadAdmin(admin.ModelAdmin):
+    list_display = ('uid','fid','fpth')
+    search_fields = ('uid','fid','fpth')
+
+admin.site.register(spread,spreadAdmin)

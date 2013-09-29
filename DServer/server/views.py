@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*-
 from django.http import HttpResponse
 from django.db import connection,transaction
-from models import Device,Muser,App,downloadtask,wallpapertask,Wallpaper,record,payrequest
+from models import Device,Muser,App,downloadtask,wallpapertask,Wallpaper,record,payrequest,spread
 from django.core.files.storage import default_storage
 from datetime import *
 import  time
@@ -11,17 +11,38 @@ import pytz
 def checkDevice(request):
     res={'code':1,'message':''}
     try:
-        Device.objects.get(uid=request.GET['uid']);
+        dev=Device.objects.get(uid=request.GET['uid']);
     except:
         return HttpResponse(json.dumps(res))
     res['code']=0
+    res['devmoney']=dev.money
     return HttpResponse(json.dumps(res))
+
+def getSpread(request):
+    res={'code':1,'message':''}
+    try:
+        sp=spread.objects.get(uid=request.GET['uid']);
+        res['code']=0
+        res['message']=sp.fid
+        return HttpResponse(json.dumps(res))
+    except:
+        try:
+            sp=spread.objects.filter(uid=None)[0][0]
+            sp.uid=request.GET['uid']
+            sp.save()
+            res['code']=0
+            res['message']=sp.fid
+            return HttpResponse(json.dumps(res))
+        except:
+            return HttpResponse(json.dumps(res))
+
 def addDevice(request):
     res={'code':1,'message':'错误，请重试'}
     try:
         reg_uid=request.GET['uid']
         reg_uname=request.GET['uname']
         reg_upwd=request.GET['upwd']
+        reg_father=request.GET['father']
     except:
         return HttpResponse(json.dumps(res))
     reged=False
@@ -50,6 +71,11 @@ def addDevice(request):
             device=Device()
             device.uid=reg_uid
             device.uname=reg_uname
+            try:
+                sp=spread.objects.get(fid=reg_father)
+                device.fathername=sp.uid
+            except:
+                pass
             device.money=0
             user=Muser()
             user.uname=reg_uname
@@ -135,6 +161,7 @@ def getWallPaperTask(request):
             dic['leftprice']=item.leftprice
             dic['rightprice']=item.rightprice
             dic['maxmoney']=item.maxmoney
+            dic['url']=item.url
             dic['percent']=0
             tasks.append(dic)
         for item in old_task:
@@ -146,6 +173,7 @@ def getWallPaperTask(request):
             dic['rightprice']=temp.rightprice
             dic['maxmoney']=temp.maxmoney
             dic['percent']=item.percent
+            dic['url']=temp.url
             tasks.append(dic)
         res['message']=json.dumps(tasks)
     except:
@@ -234,12 +262,34 @@ def adddownload(request):
         item.save()
         dev=Device.objects.get(uid=uid)
         dev.money+=item.money
+        dev.downloadcount+=1
         dev.save()
         log=record()
         log.uid=uid
         log.type='download:'+package
         log.amount=item.money
         log.save()
+
+        if(dev.fathername!=None and len(dev.fathername)>4):
+            try:
+                fatherMoney=item.money*.2
+                faDev=Device.objects.get(uid=dev.fathername)
+                faDev.money+=fatherMoney
+                log2=record()
+                log2.uid=dev.fathername
+                log2.type="sondownload:"+package
+                log2.amount=fatherMoney
+                log2.save()
+                if dev.downloadcount==3:
+                    faDev.money+=1.5
+                    log3=record()
+                    log3.uid=dev.fathername
+                    log3.type="sonachieve:"+dev.downloadcount
+                    log3.amount=1.5
+                    log3.save()
+                faDev.save()
+            except:
+                pass
     #else:
     except:
         return HttpResponse(json.dumps(res))
@@ -299,7 +349,7 @@ def addpayrequest(request):
     try:
         uid=request.GET['uid']
         paytype=request.GET['paytype']
-        spend=request.GET['spend']
+        spend=float(request.GET['spend'])
     except:
         return HttpResponse(json.dumps(res))
     #if True:
@@ -318,8 +368,9 @@ def addpayrequest(request):
         item.save()
         log=record()
         log.uid=uid
-        log.type='payrequest:'+type
+        log.type='payrequest:'+paytype
         log.amount=spend
+        log.save()
     #else:
     except:
         return HttpResponse(json.dumps(res))
