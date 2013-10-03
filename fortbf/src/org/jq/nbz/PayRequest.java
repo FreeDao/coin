@@ -124,7 +124,8 @@ public class PayRequest extends Activity {
 			@Override
 			protected void onPostExecute(Httpres result) {
 				if(result!=null){
-					currentMoney.setText(result.devmoney+"гд");
+					double dou=(double)Math.round(result.devmoney*100)/100;
+					currentMoney.setText(dou+"гд");
 				}
 			}
 		};

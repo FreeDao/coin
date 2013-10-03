@@ -10,7 +10,7 @@ public class PersonInfoActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.person_info_activity);
+		setContentView(R.layout.record_activity);
 	}
 	
 	

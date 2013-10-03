@@ -3,7 +3,6 @@ package util;
 import java.io.File;
 
 import org.jq.model.BaseModel;
-import org.jq.model.DownloadTask;
 import org.jq.model.NetImage;
 
 import android.net.Uri;

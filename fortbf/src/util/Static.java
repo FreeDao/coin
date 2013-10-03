@@ -11,6 +11,7 @@ import java.util.HashMap;
 import org.jq.model.BaseModel;
 import org.jq.model.DownloadTask;
 import org.jq.model.Httpres;
+import org.jq.model.PayRequestRecord;
 import org.jq.model.SignTask;
 import org.jq.model.WallpaperTask;
 
@@ -39,12 +40,13 @@ public class Static {
 		T run(String... args);
 	}
 	
-	public static String baseUrl="http://192.168.1.10:8000/";
+	public static String baseUrl="http://192.168.0.102:8000/";
 	public static Context appContext;
 	public static String loaclPth;
 	public static ArrayList<WallpaperTask> wallTasks;
 	public static ArrayList<DownloadTask> downTasks;
 	public static ArrayList<SignTask> signTasks;
+	public static ArrayList<PayRequestRecord> payRequsts=new ArrayList<PayRequestRecord>();;
 	public static callBack<Integer> checkNet=new callBack<Integer>() {
 		
 		//-1 error,0 has a,1 no user
@@ -229,6 +231,27 @@ public class Static {
 				Log.e("qq", e.toString());
 				return null;
 			}
+		}
+	};
+
+	public static callBack<ArrayList<PayRequestRecord>> getPayRequestRecord=new callBack<ArrayList<PayRequestRecord>>() {
+
+		@Override
+		public ArrayList<PayRequestRecord> run(String... args) {
+			ArrayList<PayRequestRecord> res=new ArrayList<PayRequestRecord>();
+			HttpRequester request=new HttpRequester();
+			HashMap<String, String> map=new HashMap<String, String>();
+			map.put("uid", BaseModel.getDeviceId(appContext));
+			HttpRespons response;
+			try {
+				response = request.sendGet(baseUrl+"getPayRecord",map);
+				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+				res.addAll(JSON.parseArray(httpres.message, PayRequestRecord.class));
+			} catch (IOException e) {
+				e.printStackTrace();
+				Log.e("qq", e.toString());
+			}
+			return res;
 		}
 	};
 //	public static void reinit(){
