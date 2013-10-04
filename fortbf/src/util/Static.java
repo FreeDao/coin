@@ -293,6 +293,23 @@ public class Static {
 			}
 		}
 	};
+	public static callBack<String> getSpread=new callBack<String>() {
+		
+		//-1 error,0 has a,1 no user
+		@Override
+		public String run(String... args) {
+			String res=null;
+			HttpRequester request=new HttpRequester();
+			try {
+				HttpRespons response=request.sendGet(baseUrl+"getSpread?uid="+BaseModel.getDeviceId(appContext));
+				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+				res=httpres.message;
+			} catch (Exception e) {
+				return null;
+			}
+			return res;
+		}
+	};
 //	public static void reinit(){
 //		reg=new callBack<Httpres>() {
 //

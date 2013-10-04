@@ -8,6 +8,7 @@ import org.jq.model.DownloadTask;
 import org.jq.nbz.JQBaseActivity;
 import org.jq.nbz.R;
 import org.jq.nbz.RunPackageActivity;
+import org.jq.nbz.SpreadActivity;
 
 import util.ImageBinder;
 import util.Static;
@@ -28,13 +29,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LikeActivity extends JQBaseActivity {
 
 	ProgressBar loading;
 	ListView listview;
 	DownLoadAdapter adapter;
-
+	View app1,app2,app3,app4,spread;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +48,31 @@ public class LikeActivity extends JQBaseActivity {
 	public void initView() {
 		loading = (ProgressBar) findViewById(R.id.loading);
 		listview = (ListView) findViewById(R.id.listview);
+		app1=findViewById(R.id.app1);
+		app2=findViewById(R.id.app2);
+		app3=findViewById(R.id.app3);
+		app4=findViewById(R.id.app4);
+		spread=findViewById(R.id.spread);
+		OnClickListener appListener=new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Toast.makeText(LikeActivity.this, "¾´ÇëÆÚ´ý", 0).show();
+			}
+		};
+		app1.setOnClickListener(appListener);
+		app2.setOnClickListener(appListener);
+		app3.setOnClickListener(appListener);
+		app4.setOnClickListener(appListener);
+		spread.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent it=new Intent();
+				it.setClass(getParent(), SpreadActivity.class);
+				startActivity(it);
+			}
+		});
 	}
 
 	public void setData() {

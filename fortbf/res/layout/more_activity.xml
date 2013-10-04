@@ -50,7 +50,7 @@
                 android:textColor="@color/more_color" />
 
             <LinearLayout
-                android:id="@+id/account_manager"
+                android:id="@+id/app2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4.0dip"

@@ -105,4 +105,9 @@ public class Tool {
 		
 		return res;
 	}
+	
+	public static String makeSpreadUrl(String fid){
+		String res=Static.baseUrl+"spread/"+fid+".apk";
+		return res;
+	}
 }

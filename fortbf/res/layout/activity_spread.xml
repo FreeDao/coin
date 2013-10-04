@@ -6,29 +6,47 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".RunPackageActivity" >
+    >
 
     <TextView
         android:id="@+id/into"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="点击安装应用并立即打开注册，体验90秒以上，即可获得相应奖励。\n体验完毕退回本页面哦～" 
-        android:textSize="28sp"
+        android:text="赶快来邀请朋友来玩桌面达人吧，滑动解锁轻松赚钱，邀请好友安装你独有的桌面达人推广包，你每推广一个有效用户，就可以获得以下的超高额奖励。\n 
+1、推广奖励：1.5元\n
+2、提成奖励：你推荐的下家每次下载应用完成任务，你都会额外获得20%的提成奖励。\n
+3、被推广的用户下载完成3个赚钱任务即为一个有效用户。
+" 
+        android:textSize="15sp"
         android:textColor="@color/divider_color"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/urlzone"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" 
-        android:layout_centerInParent="true">
+        android:layout_below="@+id/into" >
 
-        <ImageButton
-            android:id="@+id/play"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/play" 
-            />
+            android:orientation="vertical" >
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/url"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="获取中..."
+                android:textColor="#0000EE"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="复制链接" />
+        </LinearLayout>
+
+    </ScrollView>
     
 </RelativeLayout>
