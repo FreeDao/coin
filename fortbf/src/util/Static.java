@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.jq.model.BaseModel;
+import org.jq.model.Detail;
 import org.jq.model.DownloadTask;
 import org.jq.model.Httpres;
 import org.jq.model.PayRequestRecord;
@@ -75,6 +76,7 @@ public class Static {
 			map.put("uid", BaseModel.getDeviceId(appContext));
 			map.put("uname", URLEncoder.encode(args[0]));
 			map.put("upwd", URLEncoder.encode(args[1]));
+			map.put("father", URLEncoder.encode(args[2]));
 			HttpRequester request=new HttpRequester();
 			try {
 				HttpRespons response=request.sendGet(baseUrl+"addDevice",map);
@@ -250,6 +252,23 @@ public class Static {
 			} catch (IOException e) {
 				e.printStackTrace();
 				Log.e("qq", e.toString());
+			}
+			return res;
+		}
+	};
+	public static callBack<Detail> getDetail=new callBack<Detail>() {
+		
+		//-1 error,0 has a,1 no user
+		@Override
+		public Detail run(String... args) {
+			Detail res=null;
+			HttpRequester request=new HttpRequester();
+			try {
+				HttpRespons response=request.sendGet(baseUrl+"checkDevice?uid="+BaseModel.getDeviceId(appContext));
+				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+				res=JSON.parseObject(httpres.message, Detail.class);
+			} catch (Exception e) {
+				return null;
 			}
 			return res;
 		}

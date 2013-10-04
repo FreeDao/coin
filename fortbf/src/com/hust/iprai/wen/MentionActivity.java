@@ -11,9 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-import com.hust.iprai.wen.home.LikeActivity;
-import com.hust.iprai.wen.home.MarkActivity;
-
 @SuppressWarnings("deprecation")
 public class MentionActivity extends ActivityGroup {
 	

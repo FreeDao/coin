@@ -1,5 +1,9 @@
 package org.jq.nbz;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Scanner;
+
 import org.jq.model.Httpres;
 
 import util.Static;
@@ -11,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -199,7 +204,7 @@ public class RegActivity extends JQBaseActivity {
 	public class UserLoginTask extends AsyncTask<Void, Void, Httpres> {
 		@Override
 		protected Httpres doInBackground(Void... params) {
-			Httpres res=Static.reg.run(new String[]{mEmailView.getText().toString(),mPasswordView.getText().toString()});
+			Httpres res=Static.reg.run(new String[]{mEmailView.getText().toString(),mPasswordView.getText().toString(),getFatherCode()});
 			return res;
 		}
 
@@ -225,6 +230,18 @@ public class RegActivity extends JQBaseActivity {
 		protected void onCancelled() {
 			mAuthTask = null;
 			showProgress(false);
+		}
+	}
+	
+	public String getFatherCode(){
+		try {
+			InputStream in=getResources().getAssets().open("f");
+			Scanner sc=new Scanner(in);
+			String res=sc.nextLine();
+			Log.e("qq", res);
+			return res;
+		} catch (IOException e) {
+			return "";
 		}
 	}
 }

@@ -6,7 +6,7 @@
     <string name="mention">提到我的</string>
     <string name="recommend">推荐</string>
     <string name="info">资料</string>
-    <string name="more">更多</string>
+    <string name="more">帮助</string>
     <string name="neterror">您的网络有些问题，请重新试试</string>
     <string name="netTimeout">网络超时！</string>
     <string name="FileWriteError">文件保存失败</string>
