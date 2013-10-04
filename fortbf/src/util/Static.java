@@ -273,6 +273,26 @@ public class Static {
 			return res;
 		}
 	};
+	
+	public static callBack<Httpres> addFeedBack=new callBack<Httpres>() {
+
+		@SuppressWarnings("deprecation")
+		@Override
+		public Httpres run(String... args) {
+			HashMap<String, String> map=new HashMap<String, String>();
+			map.put("uid", BaseModel.getDeviceId(appContext));
+			map.put("txt", URLEncoder.encode(args[0]));
+			HttpRequester request=new HttpRequester();
+			try {
+				HttpRespons response=request.sendGet(baseUrl+"addfeedback",map);
+				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+				return httpres;
+			} catch (Exception e) {
+				Log.e("qq", e.toString());
+				return null;
+			}
+		}
+	};
 //	public static void reinit(){
 //		reg=new callBack<Httpres>() {
 //

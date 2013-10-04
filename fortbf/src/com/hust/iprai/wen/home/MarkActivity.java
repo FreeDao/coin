@@ -38,14 +38,14 @@ public class MarkActivity extends JQBaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.like_activity);
+		setContentView(R.layout.mark_activity);
 		initView();
 		setData();
 	}
 
 	public void initView() {
-		loading = (ProgressBar) findViewById(R.id.loading);
-		listview = (ListView) findViewById(R.id.listview);
+		loading = (ProgressBar) findViewById(R.id.home_progress_like);
+		listview = (ListView) findViewById(R.id.home_lv_mark);
 	}
 
 	public void setData() {

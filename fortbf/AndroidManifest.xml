@@ -106,6 +106,12 @@
             android:name="org.jq.nbz.PayRecordActivity"
             android:label="@string/title_activity_pay_record" >
         </activity>
+        <activity
+            android:name="org.jq.nbz.SpreadActivity"
+            android:label="@string/title_activity_spread" 
+            android:launchMode="singleInstance"
+            android:theme="@style/Transparent">
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" >
