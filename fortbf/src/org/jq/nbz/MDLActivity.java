@@ -1,0 +1,1 @@
+package org.jq.nbz;import com.dlnetwork.DianleOfferActivity;public class MDLActivity extends DianleOfferActivity {}

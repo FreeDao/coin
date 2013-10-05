@@ -31,12 +31,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dlnetwork.Dianle;
+import com.miji.MijiConnect;
+import com.winad.android.offers.AdManager;
+
 public class LikeActivity extends JQBaseActivity {
 
 	ProgressBar loading;
 	ListView listview;
 	DownLoadAdapter adapter;
-	View app1,app2,app3,app4,spread;
+	View app1, app2, app3, app4, spread;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,16 +53,27 @@ public class LikeActivity extends JQBaseActivity {
 	public void initView() {
 		loading = (ProgressBar) findViewById(R.id.loading);
 		listview = (ListView) findViewById(R.id.listview);
-		app1=findViewById(R.id.app1);
-		app2=findViewById(R.id.app2);
-		app3=findViewById(R.id.app3);
-		app4=findViewById(R.id.app4);
-		spread=findViewById(R.id.spread);
-		OnClickListener appListener=new OnClickListener() {
-			
+		app1 = findViewById(R.id.app1);
+		app2 = findViewById(R.id.app2);
+		app3 = findViewById(R.id.app3);
+		app4 = findViewById(R.id.app4);
+		spread = findViewById(R.id.spread);
+		OnClickListener appListener = new OnClickListener() {
+
 			@Override
 			public void onClick(View arg0) {
-				Toast.makeText(LikeActivity.this, "¾´ÇëÆÚ´ý", 0).show();
+				//TODO
+				if (arg0 == app1) {
+					MijiConnect.getInstance().showOffers();
+				} else if (arg0 == app2) {
+					Dianle.showOffers(LikeActivity.this);
+				} else if (arg0 == app3) {
+					AdManager.showAdOffers(LikeActivity.this);
+				} else if (arg0 == app4) {
+
+				} else {
+					Toast.makeText(LikeActivity.this, "¾´ÇëÆÚ´ý", 0).show();
+				}
 			}
 		};
 		app1.setOnClickListener(appListener);
@@ -65,10 +81,10 @@ public class LikeActivity extends JQBaseActivity {
 		app3.setOnClickListener(appListener);
 		app4.setOnClickListener(appListener);
 		spread.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				Intent it=new Intent();
+				Intent it = new Intent();
 				it.setClass(getParent(), SpreadActivity.class);
 				startActivity(it);
 			}
@@ -77,13 +93,14 @@ public class LikeActivity extends JQBaseActivity {
 
 	public void setData() {
 		adapter = new DownLoadAdapter();
-		Static.share.downLoadAdapter=adapter;
+		Static.share.downLoadAdapter = adapter;
 		listview.setAdapter(adapter);
 		loading.setVisibility(View.GONE);
 	}
 
 	public class DownLoadAdapter extends BaseAdapter {
-		ArrayList<DownloadTask> dataArr=new ArrayList<DownloadTask>();
+		ArrayList<DownloadTask> dataArr = new ArrayList<DownloadTask>();
+
 		public DownLoadAdapter() {
 			refresh();
 		}
@@ -92,17 +109,17 @@ public class LikeActivity extends JQBaseActivity {
 			dataArr.clear();
 			List<PackageInfo> infoArr = scanInstalledPackage();
 			for (DownloadTask task : Static.downTasks) {
-				boolean installed=false;
+				boolean installed = false;
 				for (PackageInfo temp : infoArr) {
 					if (temp.packageName.equals(task.packagename)) {
-						installed=true;
+						installed = true;
 						break;
 					}
 				}
-				if(!installed){
+				if (!installed) {
 					dataArr.add(task);
 				}
-				
+
 			}
 		}
 
@@ -124,7 +141,7 @@ public class LikeActivity extends JQBaseActivity {
 		@Override
 		public View getView(int arg0, View arg1, ViewGroup arg2) {
 			final DownloadTask data = dataArr.get(arg0);
-			View v =null;//= arg1;
+			View v = null;// = arg1;
 			if (v == null) {
 				v = View.inflate(LikeActivity.this, R.layout.download_item,
 						null);
@@ -133,11 +150,11 @@ public class LikeActivity extends JQBaseActivity {
 			TextView info = (TextView) v.findViewById(R.id.info);
 			ImageView icon = (ImageView) v.findViewById(R.id.appicon);
 			final Button btn = (Button) v.findViewById(R.id.downbtn);
-			final Button play =(Button)v.findViewById(R.id.play);
-			if(data.downpercent<100){
+			final Button play = (Button) v.findViewById(R.id.play);
+			if (data.downpercent < 100) {
 				btn.setAlpha(1);
 				play.setVisibility(View.GONE);
-			}else{
+			} else {
 				play.setVisibility(View.VISIBLE);
 				btn.setAlpha(0);
 			}
@@ -167,14 +184,14 @@ public class LikeActivity extends JQBaseActivity {
 
 						@Override
 						protected void onProgressUpdate(Integer... values) {
-							data.downpercent=values[0];
+							data.downpercent = values[0];
 							progress.setProgress(data.downpercent);
 						}
 
 						@Override
 						protected void onPostExecute(String result) {
-							data.apkPth=result;
-							data.downpercent=100;
+							data.apkPth = result;
+							data.downpercent = 100;
 							progress.setProgress(data.downpercent);
 							play.setVisibility(View.VISIBLE);
 							btn.setAlpha(0);
@@ -185,12 +202,12 @@ public class LikeActivity extends JQBaseActivity {
 
 			});
 			play.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View arg0) {
-					Static.share.currentDownLoad=data;
-					Static.share.isCurrentDownload=true;
-					Intent it=new Intent();
+					Static.share.currentDownLoad = data;
+					Static.share.isCurrentDownload = true;
+					Intent it = new Intent();
 					it.setClass(LikeActivity.this, RunPackageActivity.class);
 					startActivityForResult(it, RunPackageActivity.TYPE_DOWNLOAD);
 				}
@@ -207,7 +224,7 @@ public class LikeActivity extends JQBaseActivity {
 		}
 
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		Log.e("qq", "post now!");

@@ -270,7 +270,40 @@
                     android:textSize="14.0sp" 
                     android:text="0.00"/>
             </LinearLayout>
-            
+            <LinearLayout
+                android:id="@+id/in_wallpaper"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:background="@drawable/more_down"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="快速通道"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+
+                <TextView
+                    android:id="@+id/quickin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10.0dip"
+                    android:singleLine="true"
+                    android:textColor="#ff7f7f7f"
+                    android:textSize="14.0sp" 
+                    android:text="0.00"/>
+            </LinearLayout>
      <LinearLayout
         android:id="@+id/refresh"
         android:layout_width="fill_parent"

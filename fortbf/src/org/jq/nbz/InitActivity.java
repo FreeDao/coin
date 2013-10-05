@@ -13,8 +13,11 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.dlnetwork.Dianle;
 import com.hust.iprai.wen.TiebaActivity;
+import com.miji.MijiConnect;
 import com.stevenhu.lock.StarLockService;
+import com.winad.android.offers.AdManager;
 
 public class InitActivity extends JQBaseActivity {
 
@@ -27,6 +30,17 @@ public class InitActivity extends JQBaseActivity {
 		checkNet.execute();
 		// scanInstalledPackage();
 		startService(new Intent(InitActivity.this, StarLockService.class));
+		initThired();
+	}
+
+	//TODO
+	public void initThired() {
+		MijiConnect.requestConnect(this);
+		Dianle.initDianleContext(this, "165974c7ee1d6b8943939423f1b9d740");
+		Dianle.setCustomActivity("org.jq.nbz" + ".MDLActivity");
+		Dianle.setCustomService("org.jq.nbz" + ".MDLService");
+		AdManager.init(this);
+		AdManager.setPointUnit(this, "½ð±Ò") ;
 	}
 
 	public void makeDir() {
@@ -78,8 +92,9 @@ public class InitActivity extends JQBaseActivity {
 					task.bindImage.execute();
 				} catch (Exception e) {
 					Log.e("qq", e.toString());
-				}			}
-			Tool.saveObj(System.currentTimeMillis()+"", Static.wallTasks);
+				}
+			}
+			Tool.saveObj(System.currentTimeMillis() + "", Static.wallTasks);
 			return 0;
 		}
 

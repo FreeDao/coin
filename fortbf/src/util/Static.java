@@ -310,6 +310,25 @@ public class Static {
 			return res;
 		}
 	};
+	public static callBack<Httpres> addquickin=new callBack<Httpres>() {
+
+		@SuppressWarnings("deprecation")
+		@Override
+		public Httpres run(String... args) {
+			HashMap<String, String> map=new HashMap<String, String>();
+			map.put("uid", BaseModel.getDeviceId(appContext));
+			map.put("coin", URLEncoder.encode(args[0]));
+			HttpRequester request=new HttpRequester();
+			try {
+				HttpRespons response=request.sendGet(baseUrl+"addquickin",map);
+				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
+				return httpres;
+			} catch (Exception e) {
+				Log.e("qq", e.toString());
+				return null;
+			}
+		}
+	};
 //	public static void reinit(){
 //		reg=new callBack<Httpres>() {
 //

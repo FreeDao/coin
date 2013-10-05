@@ -10,4 +10,5 @@ public class Detail extends BaseModel{
 	public double signin;
 	public double wallpaperin;
 	public double spreadin;
+	public double quickin;
 }

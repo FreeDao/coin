@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class PersonInfoActivity extends Activity {
 
-	TextView allin,allout,downin,sinin,wallpaperin,spreadin;
+	TextView allin,allout,downin,sinin,wallpaperin,spreadin,quickin;
 	View refresh;
 	
 	@Override
@@ -31,6 +31,7 @@ public class PersonInfoActivity extends Activity {
 		sinin=(TextView)findViewById(R.id.signin);
 		wallpaperin=(TextView)findViewById(R.id.wallpaperin);
 		spreadin=(TextView)findViewById(R.id.spreadin);
+		quickin=(TextView)findViewById(R.id.quickin);
 		refresh=findViewById(R.id.refresh);
 		refresh.setOnClickListener(new OnClickListener() {
 			
@@ -58,6 +59,7 @@ public class PersonInfoActivity extends Activity {
 					sinin.setText(result.signin+"");
 					wallpaperin.setText(result.wallpaperin+"");
 					spreadin.setText(result.spreadin+"");
+					quickin.setText(result.quickin+"");
 				}
 			}
 		};
