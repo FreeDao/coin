@@ -214,7 +214,6 @@ public class StatusViewManager implements MediaControl
 	@Override
 	public void registerComponent() 
 	{
-		// TODO Auto-generated method stub
 		Log.d("MainActivity", "registerComponent()");
 		
         if (mIntentReceiver == null) {
@@ -238,7 +237,6 @@ public class StatusViewManager implements MediaControl
 	@Override
 	public void unregisterComponent()
 	{
-		// TODO Auto-generated method stub
 		Log.d("MainActivity", "unregisterComponent()");
         if (mIntentReceiver != null) {
         	mContext.unregisterReceiver(mIntentReceiver);
@@ -254,7 +252,6 @@ public class StatusViewManager implements MediaControl
 	@Override
 	public void initViews() 
 	{
-		// TODO Auto-generated method stub
 		mDateView = (TextView)findViewById(R.id.date);
 		//定义日期的显示格式，日期显示格式在donotTranslatr.xml文件中定义
     	mDateFormat = getString(R.string.month_day_year);

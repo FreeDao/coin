@@ -8,5 +8,6 @@ public class Httpres implements Serializable{
 
 	public int code=-2;
 	public String message="";
+	public String version="";
 	public double devmoney=0;
 }

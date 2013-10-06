@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.conf import settings
 
 from server.views import getDownTask,addDevice,getSignTask,getWallPaperTask,\
-    adddownload,addSign,addpayrequest,addWallpaper,checkDevice
+    adddownload,addSign,addpayrequest,addWallpaper,checkDevice,getSpread,getPayRecord,addfeedback,addquickin
 
 admin.autodiscover()
 
@@ -20,13 +20,18 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^raw/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT },name="raw"),
+    url(r'^spread/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_ROOT,'show_indexes': True},name="spread"),
     url(r'^getDownTask/$',getDownTask),
     url(r'^getSignTask/$',getSignTask),
     url(r'^getWallPaperTask/$',getWallPaperTask),
+    url(r'^getSpread/$',getSpread),
+    url(r'^getPayRecord/$',getPayRecord),
     url(r'^adddownload/$',adddownload),
     url(r'^addSign/$',addSign),
     url(r'^addpayrequest/$',addpayrequest),
     url(r'^addWallpaper/$',addWallpaper),
     url(r'^addDevice/$',addDevice),
+    url(r'^addfeedback/$',addfeedback),
+    url(r'^addquickin/$',addquickin),
     url(r'^checkDevice/$',checkDevice),
 )

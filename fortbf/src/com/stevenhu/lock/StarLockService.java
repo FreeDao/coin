@@ -23,7 +23,6 @@ public class StarLockService extends Service implements MediaControl
 	@Override
 	public void onCreate() 
 	{
-		// TODO Auto-generated method stub
 		super.onCreate();
 		refreshInfo();
 		if (DBG)Log.d(TAG, "-->onCreate()");
@@ -37,7 +36,6 @@ public class StarLockService extends Service implements MediaControl
 	@Override
 	public void onStart(Intent intent, int startId)
 	{
-		// TODO Auto-generated method stub
 		super.onStart(intent, startId);
 		if(DBG) Log.d(TAG, "-->onStart()");
 	}
@@ -47,7 +45,6 @@ public class StarLockService extends Service implements MediaControl
 	@Override
 	public void onDestroy() 
 	{
-		// TODO Auto-generated method stub
 		super.onDestroy();
 		if(DBG) Log.d(TAG, "-->onDestroy()");
 		unregisterComponent();
@@ -58,14 +55,12 @@ public class StarLockService extends Service implements MediaControl
 	@Override
 	public IBinder onBind(Intent arg0)
 	{
-		// TODO Auto-generated method stub
 		if(DBG) Log.d(TAG, "-->onBind()");
 		return null;
 	}
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		// TODO Auto-generated method stub
 		if(DBG) Log.d(TAG, "-->onStartCommand()");
 		return Service.START_STICKY;
 	}
@@ -104,7 +99,6 @@ public class StarLockService extends Service implements MediaControl
 			@Override
 			public void onReceive(Context context, Intent intent) 
 			{
-				// TODO Auto-generated method stub
 				if(DBG) Log.d(TAG, "MusicBroadcastReceiver-->" + intent.getAction());
 				
 				MusicInfo.setArtistName(intent.getStringExtra("artist"));
@@ -168,7 +162,6 @@ public class StarLockService extends Service implements MediaControl
 	@Override
 	public void connectMediaService()
 	{
-		// TODO Auto-generated method stub
 		//MainActivity.mStatusViewManager.connectMediaService();
 	}
 
@@ -176,7 +169,6 @@ public class StarLockService extends Service implements MediaControl
 	@Override
 	public void registerComponent()
 	{
-		// TODO Auto-generated method stub
 		if(DBG) Log.d(TAG, "registerComponent()");
 		IntentFilter mScreenOnOrOffFilter = new IntentFilter();
 		mScreenOnOrOffFilter.addAction("android.intent.action.SCREEN_ON");
@@ -200,7 +192,6 @@ public class StarLockService extends Service implements MediaControl
 	@Override
 	public void unregisterComponent() 
 	{
-		// TODO Auto-generated method stub
 		if(DBG) Log.d(TAG, "unregisterComponent()");
 		if (mScreenOnOrOffReceiver != null)
 		{
@@ -215,7 +206,6 @@ public class StarLockService extends Service implements MediaControl
 
 	@Override
 	public void initViews() {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -81,7 +81,6 @@ public class StarLockView extends ViewGroup implements OnClickListener
 	
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
-		// TODO Auto-generated method stub
 		if (changed) {
 			mWidth = r;
 			mHight = b;
@@ -358,7 +357,6 @@ public class StarLockView extends ViewGroup implements OnClickListener
 	
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-		// TODO Auto-generated method stub
 		final int action = ev.getAction();
 		final float x = ev.getX();
 		final float y = ev.getY();
@@ -682,7 +680,6 @@ public class StarLockView extends ViewGroup implements OnClickListener
 	@Override
 	public void onClick(View v) 
 	{
-		// TODO Auto-generated method stub
 		
 		Intent intent = new Intent();
 		intent.setAction(SERVICECMD);
@@ -746,7 +743,6 @@ public class StarLockView extends ViewGroup implements OnClickListener
 	//停止中心图标动画
 	@Override
 	protected void onAnimationEnd() {
-		// TODO Auto-generated method stub
 		super.onAnimationEnd();
 		if (alpha != null)
 		{
@@ -758,7 +754,6 @@ public class StarLockView extends ViewGroup implements OnClickListener
 	//显示中心图标动画
 	@Override
 	protected void onAnimationStart() {
-		// TODO Auto-generated method stub
 		super.onAnimationStart();
 		mAlphaView.setVisibility(View.VISIBLE);
 

@@ -8,12 +8,14 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 import org.jq.model.BaseModel;
 import org.jq.model.Detail;
 import org.jq.model.DownloadTask;
 import org.jq.model.Httpres;
 import org.jq.model.PayRequestRecord;
 import org.jq.model.SignTask;
+import org.jq.model.Version;
 import org.jq.model.WallpaperTask;
 
 import android.content.Context;
@@ -35,13 +37,14 @@ public class Static {
 		public static SignAdapter signAdapter=null;
 		
 		public static Httpres device;
+		public static Version version;
 	}
 	
 	public interface callBack<T>{
 		T run(String... args);
 	}
 	
-	public static String baseUrl="http://192.168.0.102:8000/";
+	public static String baseUrl="http://61.147.112.27:8000/";
 	public static Context appContext;
 	public static String loaclPth;
 	public static ArrayList<WallpaperTask> wallTasks;
@@ -59,6 +62,11 @@ public class Static {
 				HttpRespons response=request.sendGet(baseUrl+"checkDevice?uid="+BaseModel.getDeviceId(appContext));
 				Httpres httpres=JSON.parseObject(response.getContent(), Httpres.class);
 				res=httpres.code;
+				if(!Tool.isEmpty(httpres.version)){
+					try{
+						share.version=JSON.parseObject(httpres.version, Version.class);
+					}catch (Exception e) {}
+				}
 				share.device=httpres;
 			} catch (Exception e) {
 				return -1;

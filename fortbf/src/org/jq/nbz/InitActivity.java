@@ -6,7 +6,10 @@ import org.jq.model.WallpaperTask;
 
 import util.Static;
 import util.Tool;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 import com.dlnetwork.Dianle;
 import com.hust.iprai.wen.TiebaActivity;
 import com.miji.MijiConnect;
+import com.newqm.sdkoffer.QuMiConnect;
 import com.stevenhu.lock.StarLockService;
 import com.winad.android.offers.AdManager;
 
@@ -32,15 +36,19 @@ public class InitActivity extends JQBaseActivity {
 		startService(new Intent(InitActivity.this, StarLockService.class));
 		initThired();
 	}
-
-	//TODO
+	
+	//TODO adding apps
 	public void initThired() {
 		MijiConnect.requestConnect(this);
+		
 		Dianle.initDianleContext(this, "165974c7ee1d6b8943939423f1b9d740");
 		Dianle.setCustomActivity("org.jq.nbz" + ".MDLActivity");
 		Dianle.setCustomService("org.jq.nbz" + ".MDLService");
+		
 		AdManager.init(this);
 		AdManager.setPointUnit(this, "½ð±Ò") ;
+		
+		QuMiConnect.ConnectQuMi(this, "06eef2c7185e517d", "1382849c52e31709");
 	}
 
 	public void makeDir() {
@@ -69,7 +77,12 @@ public class InitActivity extends JQBaseActivity {
 						finish();
 					}
 				}, 2000);
-			} else if (result == 0) {
+			}else if(Static.share.version!=null&&(!Static.share.version.version.equals(getAppVersionName(InitActivity.this)))){
+				Log.e("qq",Static.share.version.version+":"+getAppVersionName(InitActivity.this));
+				Toast.makeText(InitActivity.this, "Çë¸üÐÂ", 1).show();
+				finish();
+			}
+			else if (result == 0) {
 				getTasks.execute();
 			} else if (result == 1) {
 				Intent it = new Intent();
@@ -106,4 +119,19 @@ public class InitActivity extends JQBaseActivity {
 		}
 	};
 
+	public static String getAppVersionName(Context context) {   
+	    String versionName = "";   
+	    try {   
+	        // ---get the package info---   
+	        PackageManager pm = context.getPackageManager();   
+	        PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);   
+	        versionName = pi.versionName;   
+	        if (versionName == null || versionName.length() <= 0) {   
+	            return "";   
+	        }   
+	    } catch (Exception e) {   
+	        Log.e("VersionInfo", "Exception", e);   
+	    }   
+	    return versionName;   
+	}
 }

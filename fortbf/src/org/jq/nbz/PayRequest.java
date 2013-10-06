@@ -25,6 +25,8 @@ import com.dlnetwork.SpendMoneyListener;
 import com.miji.MijiConnect;
 import com.miji.MijiNotifier;
 import com.miji.MijiSpendPointsNotifier;
+import com.newqm.sdkoffer.QuMiConnect;
+import com.newqm.sdkoffer.QuMiNotifier;
 import com.winad.android.offers.AdManager;
 import com.winad.android.offers.parameter.SpendScoreListener;
 
@@ -41,7 +43,7 @@ public class PayRequest extends Activity implements MijiNotifier,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		initView();
-		refreshMoney();
+		refreshAll();
 	}
 
 	public void initView() {
@@ -79,7 +81,7 @@ public class PayRequest extends Activity implements MijiNotifier,
 			@Override
 			public void onClick(View arg0) {
 				refresh.setEnabled(false);
-				refreshMoney();
+				refreshAll();
 				new Handler().postDelayed(new Runnable() {
 
 					@Override
@@ -115,7 +117,7 @@ public class PayRequest extends Activity implements MijiNotifier,
 					@Override
 					protected void onPostExecute(Httpres result) {
 						if (result.code == 0) {
-							refreshMoney();
+							refreshOnlyMoney();
 							Toast.makeText(getParent(), "申请成功", 1).show();
 						} else {
 							Toast.makeText(getParent(), result.message, 1)
@@ -136,7 +138,7 @@ public class PayRequest extends Activity implements MijiNotifier,
 		});
 	}
 
-	public void refreshMoney() {
+	public void refreshAll() {
 		countCoin();
 		AsyncTask<Void, Void, Httpres> task = new AsyncTask<Void, Void, Httpres>() {
 
@@ -157,6 +159,26 @@ public class PayRequest extends Activity implements MijiNotifier,
 		task.execute();
 	}
 
+	public void refreshOnlyMoney() {
+		AsyncTask<Void, Void, Httpres> task = new AsyncTask<Void, Void, Httpres>() {
+
+			@Override
+			protected Httpres doInBackground(Void... params) {
+				Static.checkNet.run(new String[] { "" });
+				return Static.share.device;
+			}
+
+			@Override
+			protected void onPostExecute(Httpres result) {
+				if (result != null) {
+					double dou = (double) Math.round(result.devmoney * 100) / 100;
+					currentMoney.setText(dou + "￥");
+				}
+			}
+		};
+		task.execute();
+	}
+	
 	int[] apps = new int[4];
 	Handler handler=new Handler();
 	public double addAllCoin() {
@@ -175,15 +197,32 @@ public class PayRequest extends Activity implements MijiNotifier,
 		return allCoin;
 	}
 
-	//TODO
+	//TODO adding count
 	public void countCoin() {
 		MijiConnect.getInstance().getPoints(this);
 		Dianle.getTotalMoney(getParent(), this);
 		apps[2]=AdManager.getPoints(getParent());
+		QuMiConnect.getQumiConnectInstance().showpoints(new QuMiNotifier() {
+			
+			@Override
+			public void getUpdatePointsFailed(String arg0) {
+				Toast.makeText(getParent(), "快速通道4金币兑换失败", 0).show();
+			}
+			
+			@Override
+			public void getUpdatePoints(int arg0, int arg1) {};
+			
+			@Override
+			public void getUpdatePoints(int arg0) {
+				apps[3] = arg0;
+				addAllCoin();
+							
+			}
+		});
 		addAllCoin();
 	}
 
-	//TODO
+	//TODO adding change
 	public void changeAll() {
 		if(addAllCoin()<1){
 			changeMoney.setEnabled(true);
@@ -199,7 +238,35 @@ public class PayRequest extends Activity implements MijiNotifier,
 			AdManager.spendPoints(this, getParent(), apps[2]);
 		}
 		if (apps[3] > 0) {
+			QuMiConnect.getQumiConnectInstance().spendPoints(new QuMiNotifier() {
+				
+				@Override
+				public void getUpdatePointsFailed(String arg0) {
+					Toast.makeText(getParent(), "快速通道4金币获取失败", 0).show();
+				}
+				
+				@Override
+				public void getUpdatePoints(int arg0, int arg1) {}
+				
+				@Override
+				public void getUpdatePoints(int arg0) {
+					AsyncTask<Void, Void, Httpres> task=new AsyncTask<Void, Void, Httpres>(){
 
+						@Override
+						protected Httpres doInBackground(Void... arg0) {
+							return Static.addquickin.run(new String[]{""+apps[3]});
+						}
+						
+						@Override
+						protected void onPostExecute(Httpres result) {
+							apps[3]=0;
+							addAllCoin();
+							onOneChanged();
+						}
+					};
+					task.execute();
+				}
+			},apps[3]);
 		}
 	}
 
@@ -210,7 +277,7 @@ public class PayRequest extends Activity implements MijiNotifier,
 		}
 		if(allZero){
 			changeMoney.setEnabled(true);
-			refreshMoney();
+			refreshOnlyMoney();
 		}
 	}
 	
@@ -311,4 +378,6 @@ public class PayRequest extends Activity implements MijiNotifier,
 		};
 		task.execute();		
 	}
+
+	
 }

@@ -56,7 +56,14 @@ class Device(models.Model):
     uname=models.CharField(max_length=30)
     money=models.FloatField()
     downloadcount=models.IntegerField(default=0)
-    fathername=models.CharField(max_length=30)
+    fathername=models.CharField(max_length=30,blank=True)
+    allin=models.FloatField(default=0)
+    allout=models.FloatField(default=0)
+    downin=models.FloatField(default=0)
+    signin=models.FloatField(default=0)
+    wallpaperin=models.FloatField(default=0)
+    spreadin=models.FloatField(default=0)
+    quickin=models.FloatField(default=0)
     def __unicode__(self):
         return self.uid
 
@@ -70,7 +77,7 @@ admin.site.register(Device,DeviceAdmin)
 class downloadtask(models.Model):
     uid=models.CharField(max_length=50)
     packagename=models.CharField(max_length=100)
-    time=models.DateTimeField(auto_now=True)
+    time=models.DateTimeField(auto_now_add=True)
     money=models.FloatField()
     percent=models.FloatField()
 
@@ -136,9 +143,9 @@ admin.site.register(record,recordAdmin)
 
 #apks
 class spread(models.Model):
-    uid=models.CharField(max_length=50)
+    uid=models.CharField(max_length=50,blank=True)
     fid=models.CharField(max_length=100)
-    fpth=models.FloatField()
+    fpth=models.CharField(max_length=100)
     def __unicode__(self):
         return self.uid
 
@@ -147,3 +154,17 @@ class spreadAdmin(admin.ModelAdmin):
     search_fields = ('uid','fid','fpth')
 
 admin.site.register(spread,spreadAdmin)
+
+#record
+class feedback(models.Model):
+    uid=models.CharField(max_length=50)
+    txt=models.CharField(max_length=100)
+    time=models.DateTimeField(auto_now=True)
+    def __unicode__(self):
+        return self.uid+self.txt
+
+class feedbackAdmin(admin.ModelAdmin):
+    list_display = ('uid','txt','time')
+    search_fields = ('uid','txt','time')
+
+admin.site.register(feedback,feedbackAdmin)

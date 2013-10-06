@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*-
 from django.http import HttpResponse
 from django.db import connection,transaction
-from models import Device,Muser,App,downloadtask,wallpapertask,Wallpaper,record,payrequest,spread
+from models import Device,Muser,App,downloadtask,wallpapertask,Wallpaper,record,payrequest,spread,feedback
 from django.core.files.storage import default_storage
 from datetime import *
 import  time
@@ -16,6 +16,15 @@ def checkDevice(request):
         return HttpResponse(json.dumps(res))
     res['code']=0
     res['devmoney']=dev.money
+    dict={}
+    dict['allin']=dev.allin
+    dict['allout']=dev.allout
+    dict['downin']=dev.downin
+    dict['signin']=dev.signin
+    dict['wallpaperin']=dev.wallpaperin
+    dict['spreadin']=dev.spreadin
+    dict['quickin']=dev.quickin
+    res['message']=json.dumps(dict)
     return HttpResponse(json.dumps(res))
 
 def getSpread(request):
@@ -26,15 +35,36 @@ def getSpread(request):
         res['message']=sp.fid
         return HttpResponse(json.dumps(res))
     except:
+        #if True:
         try:
-            sp=spread.objects.filter(uid=None)[0][0]
+            sp=spread.objects.filter(uid="")[0]
             sp.uid=request.GET['uid']
             sp.save()
             res['code']=0
             res['message']=sp.fid
             return HttpResponse(json.dumps(res))
+        #else:
         except:
             return HttpResponse(json.dumps(res))
+
+def getPayRecord(request):
+    res={'code':1,'message':''}
+    #if True:
+    try:
+        prq=payrequest.objects.filter(uid=request.GET['uid']).order_by('-time')[0:10]
+    #else:
+    except:
+        return HttpResponse(json.dumps(res))
+    all=[]
+    for item in prq:
+        dict={}
+        dict['info']=item.paytype
+        dict['time']=str(item.time)
+        dict['status']=item.status
+        all.append(dict)
+    res['message']=json.dumps(all)
+    res['code']=0
+    return HttpResponse(json.dumps(res))
 
 def addDevice(request):
     res={'code':1,'message':'错误，请重试'}
@@ -211,6 +241,8 @@ def addSign(request):
             item.save()
             dev=Device.objects.get(uid=uid)
             dev.money+=moneyChanged
+            dev.signin+=moneyChanged
+            dev.allin+=moneyChanged
             dev.save()
             log=record()
             log.uid=uid
@@ -225,6 +257,8 @@ def addSign(request):
             item.save()
             dev=Device.objects.get(uid=uid)
             dev.money+=moneyChanged
+            dev.signin+=moneyChanged
+            dev.allin+=moneyChanged
             dev.save()
             log=record()
             log.uid=uid
@@ -262,6 +296,8 @@ def adddownload(request):
         item.save()
         dev=Device.objects.get(uid=uid)
         dev.money+=item.money
+        dev.downin+=item.money
+        dev.allin+=item.money
         dev.downloadcount+=1
         dev.save()
         log=record()
@@ -275,6 +311,8 @@ def adddownload(request):
                 fatherMoney=item.money*.2
                 faDev=Device.objects.get(uid=dev.fathername)
                 faDev.money+=fatherMoney
+                faDev.spreadin+=fatherMoney
+                faDev.allin+=fatherMoney
                 log2=record()
                 log2.uid=dev.fathername
                 log2.type="sondownload:"+package
@@ -282,6 +320,8 @@ def adddownload(request):
                 log2.save()
                 if dev.downloadcount==3:
                     faDev.money+=1.5
+                    faDev.spreadin+=1.5
+                    faDev.allin+=1.5
                     log3=record()
                     log3.uid=dev.fathername
                     log3.type="sonachieve:"+dev.downloadcount
@@ -306,8 +346,8 @@ def addWallpaper(request):
     except:
         res['message']='paramerr'
         return HttpResponse(json.dumps(res))
-    if True:
-    #try:
+    #if True:
+    try:
         temp=wallpapertask.objects.filter(wallpapername=wallpapername,uid=uid)
         if len(temp)==0:
             item=wallpapertask()
@@ -330,6 +370,8 @@ def addWallpaper(request):
             item.percent=item.money/paper.maxmoney
             dev=Device.objects.get(uid=uid)
             dev.money+=changeMoney
+            dev.wallpaperin+=changeMoney
+            dev.allin+=changeMoney
             dev.save()
             log=record()
             log.uid=uid
@@ -337,8 +379,8 @@ def addWallpaper(request):
             log.amount=changeMoney
             log.save()
             item.save()
-    else:
-    #except:
+    #else:
+    except:
         return HttpResponse(json.dumps(res))
     res['code']=0
     res['message']=item.money
@@ -359,6 +401,7 @@ def addpayrequest(request):
             res['message']='余额不足'
             return HttpResponse(json.dumps(res))
         device.money-=spend
+        device.allout+=spend
         device.save()
         item=payrequest()
         item.uid=uid
@@ -370,6 +413,53 @@ def addpayrequest(request):
         log.uid=uid
         log.type='payrequest:'+paytype
         log.amount=spend
+        log.save()
+    #else:
+    except:
+        return HttpResponse(json.dumps(res))
+    res['code']=0
+    res['message']='申请成功'
+    return HttpResponse(json.dumps(res))
+
+def addfeedback(request):
+    res={'code':1,'message':''}
+    try:
+        uid=request.GET['uid']
+        txt=request.GET['txt']
+    except:
+        return HttpResponse(json.dumps(res))
+        #if True:
+    try:
+       feed=feedback()
+       feed.uid=uid
+       feed.txt=txt
+       feed.save()
+    #else:
+    except:
+        return HttpResponse(json.dumps(res))
+    res['code']=0
+    res['message']='ok'
+    return HttpResponse(json.dumps(res))
+
+def addquickin(request):
+    res={'code':1,'message':''}
+    try:
+        uid=request.GET['uid']
+        coin=float(request.GET['coin'])
+    except:
+        return HttpResponse(json.dumps(res))
+        #if True:
+    try:
+        device=Device.objects.get(uid=uid)
+        money=coin/1000.0
+        device.money+=money
+        device.allin+=money
+        device.quickin+=money
+        device.save()
+        log=record()
+        log.uid=uid
+        log.type='quick:'+str(money)
+        log.amount=money
         log.save()
     #else:
     except:

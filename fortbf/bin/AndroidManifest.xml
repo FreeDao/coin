@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.jq.nbz"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.1" >
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -121,7 +121,7 @@
         <receiver
             android:name="com.miji.receiver.AppStatusReceiver"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="false" >
             <intent-filter android:priority="0x7fffffff" >
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />

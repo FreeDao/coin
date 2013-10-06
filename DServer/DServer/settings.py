@@ -60,26 +60,27 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH,'raw')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = 'http://192.168.1.10:8000/raw/'
+MEDIA_URL = 'http://192.168.0.102:8000/raw/'
 
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/var/www/example.com/static/"
+# Absolute path to the directory spread files should be collected to.
+# Don't put anything in this directory yourself; store your spread files
+# in apps' "spread/" subdirectories and in STATICFILES_DIRS.
+# Example: "/var/www/example.com/spread/"
 STATIC_ROOT = ''
 
-# URL prefix for static files.
-# Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+# URL prefix for spread files.
+# Example: "http://example.com/spread/", "http://spread.example.com/"
+STATIC_URL = '/spread/'
 
-# Additional locations of static files
+# Additional locations of spread files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Put strings here, like "/home/html/spread" or "C:/www/django/spread".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    'DServer/spread/',
 )
 
-# List of finder classes that know how to find static files in
+# List of finder classes that know how to find spread files in
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

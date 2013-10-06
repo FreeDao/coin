@@ -50,7 +50,6 @@ public class MainActivity extends Activity
 		@Override
 		public void handleMessage(Message msg) 
 		{
-			// TODO Auto-generated method stub
 			switch (msg.what) 
 			{
 			case MSG_LAUNCH_HOME:
@@ -110,7 +109,6 @@ public class MainActivity extends Activity
     //使home物理键失效
     @Override
 	public void onAttachedToWindow() {
-		// TODO Auto-generated method stub
 		//this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
 		super.onAttachedToWindow();
 	}
@@ -118,7 +116,6 @@ public class MainActivity extends Activity
     //使back键，音量加减键失效
    @Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
 		return disableKeycode(keyCode, event);
 	}
     
@@ -137,7 +134,6 @@ public class MainActivity extends Activity
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 		if(DBG) Log.d(TAG, "onDestroy()");
 		
@@ -146,7 +142,6 @@ public class MainActivity extends Activity
 	@Override
 	protected void onResume() 
 	{
-		// TODO Auto-generated method stub
 		super.onResume();
 		if(DBG) Log.d(TAG, "onResume()");
 	}
@@ -154,7 +149,6 @@ public class MainActivity extends Activity
 	@Override
 	public void onDetachedFromWindow() 
 	{
-		// TODO Auto-generated method stub
 		super.onDetachedFromWindow();
 		if(DBG) Log.d(TAG, "onDetachedFromWindow()");
 	    //解除监听
@@ -163,7 +157,6 @@ public class MainActivity extends Activity
     
 	public void initViews() 
 	{
-		// TODO Auto-generated method stub
 		mLockView = (StarLockView) findViewById(R.id.FxView);
 	}
 

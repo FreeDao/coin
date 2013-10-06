@@ -33,6 +33,7 @@ import android.widget.Toast;
 
 import com.dlnetwork.Dianle;
 import com.miji.MijiConnect;
+import com.newqm.sdkoffer.QuMiConnect;
 import com.winad.android.offers.AdManager;
 
 public class LikeActivity extends JQBaseActivity {
@@ -62,7 +63,7 @@ public class LikeActivity extends JQBaseActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				//TODO
+				//TODO show apps
 				if (arg0 == app1) {
 					MijiConnect.getInstance().showOffers();
 				} else if (arg0 == app2) {
@@ -70,7 +71,7 @@ public class LikeActivity extends JQBaseActivity {
 				} else if (arg0 == app3) {
 					AdManager.showAdOffers(LikeActivity.this);
 				} else if (arg0 == app4) {
-
+					QuMiConnect.getQumiConnectInstance().showOffers(null);
 				} else {
 					Toast.makeText(LikeActivity.this, "¾´ÇëÆÚ´ý", 0).show();
 				}
