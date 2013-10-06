@@ -26,13 +26,15 @@ public class Tool {
 	public interface DownCallBack{
 		public void progress(Integer progress);
 	}
-	
-	public static String download(String url,DownCallBack callback) {
+	public static String download(String url,DownCallBack callback){
+		return download(url, callback, false);
+	}
+	public static String download(String url,DownCallBack callback,boolean force) {
 		String pth = null;
 		String fname = "" + url.hashCode();
 		String base = Static.loaclPth + "/";
 		File aim = new File(base + fname);
-		if (aim.exists()) {
+		if (aim.exists()&&!force) {
 			pth = aim.getAbsolutePath();
 		} else {
 			try {
