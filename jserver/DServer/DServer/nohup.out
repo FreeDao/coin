@@ -1,0 +1,49 @@
+[uWSGI] parsing config file django.xml
+*** Starting uWSGI 1.9.17.1 (64bit) on [Sun Oct  6 07:42:51 2013] ***
+compiled with version: 4.4.7 20120313 (Red Hat 4.4.7-3) on 06 October 2013 07:10:32
+os: Linux-2.6.32-358.el6.x86_64 #1 SMP Fri Feb 22 00:31:26 UTC 2013
+nodename: localhost.localdomain
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /juqiang/DServer/DServer
+detected binary path: /usr/sbin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 1024
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8630 fd 3
+Python version: 2.7.1 (r271:86832, Oct  5 2013, 08:24:19)  [GCC 4.4.7 20120313 (Red Hat 4.4.7-3)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xcc20a0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72792 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+added ../ to pythonpath.
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xcc20a0 pid: 12105 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 12105, cores: 1)
+[pid: 12105|app: 0|req: 1/1] 119.190.31.230 () {40 vars in 749 bytes} [Sun Oct  6 07:43:02 2013] GET /admin/ => generated 7498 bytes in 4958 msecs (HTTP/1.1 200) 5 headers in 185 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 2/2] 119.190.31.230 () {44 vars in 845 bytes} [Sun Oct  6 07:43:07 2013] GET /spread/admin/css/base.css => generated 1655 bytes in 12 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 3/3] 119.190.31.230 () {44 vars in 855 bytes} [Sun Oct  6 07:43:07 2013] GET /spread/admin/css/dashboard.css => generated 1670 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 4/4] 119.190.31.230 () {42 vars in 804 bytes} [Sun Oct  6 07:43:09 2013] GET /admin/ => generated 7498 bytes in 45 msecs (HTTP/1.1 200) 5 headers in 185 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 5/5] 119.190.31.230 () {42 vars in 790 bytes} [Sun Oct  6 07:43:09 2013] GET /spread/admin/css/base.css => generated 1655 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 6/6] 119.190.31.230 () {42 vars in 800 bytes} [Sun Oct  6 07:43:09 2013] GET /spread/admin/css/dashboard.css => generated 1670 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 7/7] 119.190.31.230 () {42 vars in 804 bytes} [Sun Oct  6 07:43:15 2013] GET /admin/ => generated 7498 bytes in 48 msecs (HTTP/1.1 200) 5 headers in 185 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 8/8] 119.190.31.230 () {42 vars in 790 bytes} [Sun Oct  6 07:43:16 2013] GET /spread/admin/css/base.css => generated 1655 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 9/9] 119.190.31.230 () {42 vars in 800 bytes} [Sun Oct  6 07:43:16 2013] GET /spread/admin/css/dashboard.css => generated 1670 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 10/10] 119.190.31.230 () {40 vars in 773 bytes} [Sun Oct  6 07:43:21 2013] GET /admin/ => generated 7498 bytes in 44 msecs (HTTP/1.1 200) 5 headers in 185 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 11/11] 119.190.31.230 () {40 vars in 759 bytes} [Sun Oct  6 07:43:21 2013] GET /spread/admin/css/base.css => generated 1655 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 12/12] 119.190.31.230 () {40 vars in 769 bytes} [Sun Oct  6 07:43:21 2013] GET /spread/admin/css/dashboard.css => generated 1670 bytes in 3 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 13/13] 119.190.31.230 () {40 vars in 780 bytes} [Sun Oct  6 07:43:30 2013] GET /admin/logout/ => generated 1130 bytes in 28 msecs (HTTP/1.1 200) 6 headers in 316 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 14/14] 119.190.31.230 () {40 vars in 766 bytes} [Sun Oct  6 07:43:30 2013] GET /spread/admin/css/base.css => generated 1655 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 15/15] 119.190.31.230 () {40 vars in 773 bytes} [Sun Oct  6 07:43:31 2013] GET /admin/ => generated 1880 bytes in 26 msecs (HTTP/1.1 200) 7 headers in 438 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 16/16] 119.190.31.230 () {40 vars in 759 bytes} [Sun Oct  6 07:43:31 2013] GET /spread/admin/css/base.css => generated 1655 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 17/17] 119.190.31.230 () {48 vars in 954 bytes} [Sun Oct  6 07:43:33 2013] POST /admin/ => generated 0 bytes in 176 msecs (HTTP/1.1 302) 7 headers in 363 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 18/18] 119.190.31.230 () {42 vars in 797 bytes} [Sun Oct  6 07:43:33 2013] GET /admin/ => generated 7498 bytes in 46 msecs (HTTP/1.1 200) 5 headers in 185 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 19/19] 119.190.31.230 () {42 vars in 790 bytes} [Sun Oct  6 07:43:34 2013] GET /spread/admin/css/base.css => generated 1655 bytes in 4 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)
+[pid: 12105|app: 0|req: 20/20] 119.190.31.230 () {42 vars in 800 bytes} [Sun Oct  6 07:43:34 2013] GET /spread/admin/css/dashboard.css => generated 1670 bytes in 3 msecs (HTTP/1.1 404) 1 headers in 51 bytes (1 switches on core 0)

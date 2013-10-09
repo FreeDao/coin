@@ -9,29 +9,11 @@
     tools:context=".PayRequest"
     android:background="@color/backgroundcolor" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:text="请选择提现类型，并填写相应信息，\n点击确认按钮进行提现" 
-        android:textColor="@color/black"/>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="20dp"
-        android:text="提现申请将在两个工作日内到账，\n请您注意查收 ：）" 
-        android:textColor="@color/black" />
-
     <LinearLayout
+        android:id="@+id/gui"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical" >
 
         <TextView
@@ -39,8 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="您的余额："
-          	android:textColor="@color/black"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,20 +32,19 @@
                 android:id="@+id/currentcoin"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="0.00"
-                android:textColor="@color/black"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_weight="1" />
+                android:textColor="@color/red" />
 
             <Button
                 android:id="@+id/changetomoney"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="金币兑换"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:text="金币兑换" />
         </LinearLayout>
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -72,18 +53,17 @@
                 android:id="@+id/currentmoney"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="0.00￥"
-                android:textColor="@color/black"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_weight="1" />
+                android:textColor="@color/red" />
 
             <Button
                 android:id="@+id/refresh"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="全部刷新"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:text="全部刷新" />
         </LinearLayout>
 
         <TextView
@@ -91,8 +71,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="请选择提现方式："
-            android:textAppearance="?android:attr/textAppearanceLarge" 
-            android:textColor="@color/black"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
 
         <Spinner
             android:id="@+id/spinner1"
@@ -104,25 +84,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="请填写对应账号："
-            android:textAppearance="?android:attr/textAppearanceLarge" 
-            android:textColor="@color/black"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="50" >
-
-            <requestFocus />
-        </EditText>
+            android:ems="50" />
 
         <Button
             android:id="@+id/ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="点击提交申请"
-            android:layout_gravity="center" />
-
+            android:layout_gravity="center"
+            android:text="点击提交申请" />
     </LinearLayout>
+
+    <TextView
+        
+        android:id="@+id/textView1"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/gui"
+        android:layout_marginTop="10dp"
+        android:text="提示：您的兑换我们会在24小时内审核完毕，周末及节假日稍有延迟，请耐心等待。\n逾期未到帐，可以进群反馈给客服QQ" 
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:text="切记：申请支付宝兑换的用户，请先进行支付宝的实名认证，否则可能无法完成兑换。" 
+        android:textColor="@color/red" />
 
 </RelativeLayout>

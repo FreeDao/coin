@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:background="@drawable/more_all"
+    >
+
+        <ImageView
+            android:layout_marginLeft="8dp"
+            android:id="@+id/appicon"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/default_icon" />
+
+        <TextView
+            android:id="@+id/apkname"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/appicon"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="18dp"
+            android:layout_toRightOf="@+id/appicon"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="name"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/downbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dip"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow" />
+
+
+</RelativeLayout>

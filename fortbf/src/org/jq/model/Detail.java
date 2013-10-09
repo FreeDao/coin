@@ -11,4 +11,7 @@ public class Detail extends BaseModel{
 	public double wallpaperin;
 	public double spreadin;
 	public double quickin;
+	public double money;
+	public int spreadnum;
+	public int activenum;
 }

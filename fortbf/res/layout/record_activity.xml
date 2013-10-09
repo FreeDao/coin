@@ -50,7 +50,40 @@
                 android:layout_marginTop="15.0dip"
                 android:text="总收支"
                 android:textColor="@color/more_color" />
+			<LinearLayout
+                android:id="@+id/app2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/more_all"
+                android:clickable="true"
+                android:focusable="true" >
 
+                <TextView
+                    android:id="@+id/account_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="账户余额"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+
+                <TextView
+                    android:id="@+id/money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="120.0dip"
+                    android:text="0.00"
+                    android:textColor="@color/black" />
+            </LinearLayout>
             <LinearLayout
                 android:id="@+id/app2"
                 android:layout_width="fill_parent"
@@ -121,8 +154,6 @@
                     android:textColor="@color/black" />
             </LinearLayout>
 
-            
-
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -163,9 +194,9 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="10.0dip"
                     android:singleLine="true"
+                    android:text="0.00"
                     android:textColor="#ff7f7f7f"
-                    android:textSize="14.0sp"
-                    android:text="0.00" />
+                    android:textSize="14.0sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -198,11 +229,12 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="10.0dip"
                     android:singleLine="true"
+                    android:text="0.00"
                     android:textColor="#ff7f7f7f"
-                    android:textSize="14.0sp" 
-                    android:text="0.00"/>
+                    android:textSize="14.0sp" />
             </LinearLayout>
-<LinearLayout
+
+            <LinearLayout
                 android:id="@+id/in_sign"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -232,17 +264,18 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="10.0dip"
                     android:singleLine="true"
+                    android:text="0.00"
                     android:textColor="#ff7f7f7f"
-                    android:textSize="14.0sp" 
-                    android:text="0.00"/>
+                    android:textSize="14.0sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/in_wallpaper"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4.0dip"
                 android:layout_marginRight="4.0dip"
-                android:background="@drawable/more_down"
+                android:background="@drawable/more_middle"
                 android:clickable="true"
                 android:focusable="true" >
 
@@ -266,17 +299,18 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="10.0dip"
                     android:singleLine="true"
+                    android:text="0.00"
                     android:textColor="#ff7f7f7f"
-                    android:textSize="14.0sp" 
-                    android:text="0.00"/>
+                    android:textSize="14.0sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/in_wallpaper"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4.0dip"
                 android:layout_marginRight="4.0dip"
-                android:background="@drawable/more_down"
+                android:background="@drawable/more_middle"
                 android:clickable="true"
                 android:focusable="true" >
 
@@ -300,34 +334,69 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="10.0dip"
                     android:singleLine="true"
+                    android:text="0.00"
                     android:textColor="#ff7f7f7f"
-                    android:textSize="14.0sp" 
-                    android:text="0.00"/>
+                    android:textSize="14.0sp" />
             </LinearLayout>
-     <LinearLayout
-        android:id="@+id/refresh"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:paddingLeft="20dip"
-        android:paddingRight="20dip"
-        android:layout_gravity="top"
-        android:background="@drawable/title_bg" >
 
-        <TextView
-            android:id="@+id/titel_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10.0dip"
-            android:layout_marginRight="10.0dip"
-            android:layout_weight="1.0"
-            android:gravity="center_horizontal"
-            android:singleLine="true"
-            android:text="刷新"
-            android:textColor="#ffffffff"
-            android:textSize="15.0sp" />
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/in_wallpaper"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:background="@drawable/more_down"
+                android:clickable="true"
+                android:focusable="true" >
+
+                <TextView
+                    android:id="@+id/spreaddetail"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="6.0dip"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="6.0dip"
+                    android:layout_weight="1.0"
+                    android:singleLine="true"
+                    android:text="推广详情"
+                    android:textColor="@color/more_color"
+                    android:textSize="14.0sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10.0dip"
+                    android:singleLine="true"
+                    android:textColor="#ff7f7f7f"
+                    android:textSize="14.0sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/refresh"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="top"
+                android:background="@drawable/title_bg"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip" >
+
+                <TextView
+                    android:id="@+id/titel_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="刷新"
+                    android:textColor="#ffffffff"
+                    android:textSize="15.0sp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

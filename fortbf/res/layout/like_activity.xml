@@ -4,214 +4,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/backgroundcolor"
-    android:orientation="vertical"
-     >
-
-    <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:layout_marginTop="15.0dip"
-                android:text="快速通道"
-                android:textColor="@color/more_color" />
-
-            <LinearLayout
-                android:id="@+id/app1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4.0dip"
-                android:layout_marginRight="4.0dip"
-                android:layout_marginTop="1.0dip"
-                android:background="@drawable/more_all"
-                android:clickable="true"
-                android:focusable="true" >
-
-                <TextView
-                    android:id="@+id/account_name"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="6.0dip"
-                    android:layout_marginLeft="10.0dip"
-                    android:layout_marginTop="6.0dip"
-                    android:layout_weight="1.0"
-                    android:singleLine="true"
-                    android:text="快速通道1"
-                    android:textColor="@color/more_color"
-                    android:textSize="14.0sp" />
-
-                <ImageView
-                    android:id="@+id/arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="10.0dip"
-                    android:src="@drawable/arrow" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/app2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4.0dip"
-                android:layout_marginRight="4.0dip"
-                android:layout_marginTop="1.0dip"
-                android:background="@drawable/more_all"
-                android:clickable="true"
-                android:focusable="true" >
-
-                <TextView
-                    android:id="@+id/account_name"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="6.0dip"
-                    android:layout_marginLeft="10.0dip"
-                    android:layout_marginTop="6.0dip"
-                    android:layout_weight="1.0"
-                    android:singleLine="true"
-                    android:text="快速通道2"
-                    android:textColor="@color/more_color"
-                    android:textSize="14.0sp" />
-
-                <ImageView
-                    android:id="@+id/arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="10.0dip"
-                    android:src="@drawable/arrow" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/app3"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4.0dip"
-                android:layout_marginRight="4.0dip"
-                android:layout_marginTop="1.0dip"
-                android:background="@drawable/more_all"
-                android:clickable="true"
-                android:focusable="true" >
-
-                <TextView
-                    android:id="@+id/account_name"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="6.0dip"
-                    android:layout_marginLeft="10.0dip"
-                    android:layout_marginTop="6.0dip"
-                    android:layout_weight="1.0"
-                    android:singleLine="true"
-                    android:text="快速通道3"
-                    android:textColor="@color/more_color"
-                    android:textSize="14.0sp" />
-
-                <ImageView
-                    android:id="@+id/arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="10.0dip"
-                    android:src="@drawable/arrow" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/app4"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4.0dip"
-                android:layout_marginRight="4.0dip"
-                android:layout_marginTop="1.0dip"
-                android:background="@drawable/more_all"
-                android:clickable="true"
-                android:focusable="true" >
-
-                <TextView
-                    android:id="@+id/account_name"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="6.0dip"
-                    android:layout_marginLeft="10.0dip"
-                    android:layout_marginTop="6.0dip"
-                    android:layout_weight="1.0"
-                    android:singleLine="true"
-                    android:text="快速通道4"
-                    android:textColor="@color/more_color"
-                    android:textSize="14.0sp" />
-
-                <ImageView
-                    android:id="@+id/arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="10.0dip"
-                    android:src="@drawable/arrow" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/spread"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4.0dip"
-                android:layout_marginRight="4.0dip"
-                android:layout_marginTop="1.0dip"
-                android:background="@drawable/more_all"
-                android:clickable="true"
-                android:focusable="true" >
-
-                <TextView
-                    android:id="@+id/account_name"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="6.0dip"
-                    android:layout_marginLeft="10.0dip"
-                    android:layout_marginTop="6.0dip"
-                    android:layout_weight="1.0"
-                    android:singleLine="true"
-                    android:text="推广任务"
-                    android:textColor="@color/more_color"
-                    android:textSize="14.0sp" />
-
-                <ImageView
-                    android:id="@+id/arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="10.0dip"
-                    android:src="@drawable/arrow" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10.0dip"
-                android:layout_marginRight="10.0dip"
-                android:layout_marginTop="20.0dip"
-                android:text="下载任务"
-                android:textColor="@color/more_color" />
-        </LinearLayout>
-    </ScrollView>
+    android:orientation="vertical" >
 
     <ListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scroll"
         android:layout_marginLeft="4.0dip"
         android:layout_marginRight="4.0dip"
         android:layout_marginTop="10.0dip"
@@ -219,14 +17,14 @@
         android:cacheColorHint="@color/backgroundcolor"
         android:divider="@color/white"
         android:fadingEdge="none"
-        android:listSelector="@drawable/list_selector" />
+        android:listSelector="@drawable/list_selector" >
+    </ListView>
 
     <ProgressBar
         android:id="@+id/loading"
         style="?android:attr/progressBarStyleInverse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/listview"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:indeterminateDrawable="@drawable/progressbar"

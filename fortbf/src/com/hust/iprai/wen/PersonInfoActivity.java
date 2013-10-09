@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class PersonInfoActivity extends Activity {
 
-	TextView allin,allout,downin,sinin,wallpaperin,spreadin,quickin;
+	TextView allin,allout,downin,sinin,wallpaperin,spreadin,quickin,spreadDetail,money;
 	View refresh;
 	
 	@Override
@@ -32,6 +32,8 @@ public class PersonInfoActivity extends Activity {
 		wallpaperin=(TextView)findViewById(R.id.wallpaperin);
 		spreadin=(TextView)findViewById(R.id.spreadin);
 		quickin=(TextView)findViewById(R.id.quickin);
+		spreadDetail=(TextView)findViewById(R.id.spreaddetail);
+		money=(TextView)findViewById(R.id.money);
 		refresh=findViewById(R.id.refresh);
 		refresh.setOnClickListener(new OnClickListener() {
 			
@@ -53,6 +55,7 @@ public class PersonInfoActivity extends Activity {
 			@Override
 			protected void onPostExecute(Detail result) {
 				if(result!=null){
+					money.setText(result.money+"");
 					allin.setText(result.allin+"");
 					allout.setText(result.allout+"");
 					downin.setText(result.downin+"");
@@ -60,6 +63,7 @@ public class PersonInfoActivity extends Activity {
 					wallpaperin.setText(result.wallpaperin+"");
 					spreadin.setText(result.spreadin+"");
 					quickin.setText(result.quickin+"");
+					spreadDetail.setText("推广用户"+result.spreadnum+"人，其中"+result.activenum+"人激活");
 				}
 			}
 		};

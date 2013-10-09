@@ -52,7 +52,7 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="15.0dip"
-                    android:text="问：如何快速赚钱？"
+                    android:text="问：桌面达人如何快速赚钱？"
                     android:textColor="@color/more_color" />
 
                 <TextView
@@ -61,7 +61,7 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="15.0dip"
-                    android:text="答：通过快速通道、下载任务体验应用，应用下载后签到，滑动解锁都能获得系统奖励"
+                    android:text="答：桌面达人是一款滑动解锁手机赚钱软件。可以滑动解锁赚钱，同时也可以下载桌面达人推荐的应用赚钱，还可以推广朋友玩桌面达人享受1.5元德高额的推广奖励。每天随手一点，轻松松松赚话费。"
                     android:textColor="@color/black" />
 
             </LinearLayout>
@@ -78,7 +78,7 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="15.0dip"
-                    android:text="问：如何提现？"
+                    android:text="问：桌面达人如何提现？"
                     android:textColor="@color/more_color" />
 
                 <TextView
@@ -87,7 +87,7 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="15.0dip"
-                    android:text="答：在提现页面内填写相应账号，并提交申请，系统将在2工作日内完成审核转账"
+                    android:text="答：在软件的提现页面填写你需要兑换的号码，申请提现即可。我们会在24小时内完成您的兑换申请，如遇周末和假期可能会稍微延迟，请耐心等待。"
                     android:textColor="@color/black" />
 
             </LinearLayout>
@@ -112,7 +112,8 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="15.0dip"
-                    android:text="答：请加QQ群：12345654"
+                    android:text="答：可以进桌面达人官网寻求可以客服帮忙，也可以加入桌面达人的qq群进行咨询。桌面达人官网：www.md1.com桌面达人10群：电脑网赚官网：www.tianzhuan.net
+"
                     android:textColor="@color/black" />
 
             </LinearLayout>
