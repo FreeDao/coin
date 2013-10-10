@@ -109,6 +109,9 @@ public class Tool {
 	}
 	
 	public static String makeSpreadUrl(String fid){
+		if(isEmpty(fid)){
+			return "今天推送名额用完，明天再来哟";
+		}
 		String res=Static.baseUrl+"spread/"+fid+".apk";
 		return res;
 	}

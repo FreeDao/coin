@@ -59,7 +59,7 @@
     <string name="about">关于</string>
     <string name="quit">退出</string>
     <string name="alerm_title">提醒</string>
-    <string name="alert_quit_confirm">马上又够1Q币了，陛下退朝？</string>
+    <string name="alert_quit_confirm">马上又够1Q币了，真要退出吗？</string>
     <string name="alert_clean_history">确认清除搜索记录？</string>
     <string name="alert_yes_button">确认</string>
     <string name="alert_no_button">取消</string>

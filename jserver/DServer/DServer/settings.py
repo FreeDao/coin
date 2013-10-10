@@ -60,8 +60,8 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH,'raw')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-#MEDIA_URL = 'http://61.147.112.27:8000/raw/'
-MEDIA_URL = 'http://192.168.0.104:8000/raw/'
+MEDIA_URL = 'http://61.147.112.27:8000/raw/'
+#MEDIA_URL = 'http://192.168.0.104:8000/raw/'
 # Absolute path to the directory spread files should be collected to.
 # Don't put anything in this directory yourself; store your spread files
 # in apps' "spread/" subdirectories and in STATICFILES_DIRS.
