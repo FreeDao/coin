@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.jq.nbz"
+    package="org.jq.zmdr"
     android:versionCode="1"
     android:versionName="1.1" >
 
@@ -110,7 +110,7 @@
             android:name="org.jq.nbz.SpreadActivity"
             android:label="@string/title_activity_spread"
             android:launchMode="singleInstance"
-            android:theme="@style/Transparent" >
+            android:theme="@android:style/Theme.Holo.Light" >
         </activity>
 
         <!-- 米积分 start -->

@@ -1,6 +1,6 @@
 package com.stevenhu.lock;
 
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import android.content.Context;
 import android.content.Intent;

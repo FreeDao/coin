@@ -11,7 +11,7 @@ package demo.mydownload;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import android.app.ActivityGroup;
 import android.app.AlertDialog;

@@ -3,6 +3,7 @@ package org.jq.nbz;
 import java.util.List;
 
 import org.jq.model.Httpres;
+import org.jq.zmdr.R;
 
 import util.Static;
 import util.Tool;
@@ -17,7 +18,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class RunPackageActivity extends Activity {
@@ -25,7 +25,7 @@ public class RunPackageActivity extends Activity {
 	public static int TYPE_DOWNLOAD = 0;
 	public static int TYPE_SIGN = 1;
 
-	ImageButton playBtn;
+	View playBtn;
 	boolean isListening = false;
 	long time = 0;
 	long starttime = 0;
@@ -100,7 +100,7 @@ public class RunPackageActivity extends Activity {
 	}
 
 	private void initView() {
-		playBtn = (ImageButton) findViewById(R.id.play);
+		playBtn = findViewById(R.id.play);
 		if (Static.share.isCurrentDownload) {
 			playBtn.setOnClickListener(new OnClickListener() {
 

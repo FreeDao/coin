@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import org.jq.model.Httpres;
 import org.jq.model.WallpaperTask;
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import util.Static;
 import util.Tool;

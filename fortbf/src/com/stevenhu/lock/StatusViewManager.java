@@ -5,7 +5,7 @@ import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;

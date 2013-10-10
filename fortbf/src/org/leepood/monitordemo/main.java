@@ -1,6 +1,6 @@
 package org.leepood.monitordemo;
 
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import android.app.Activity;
 import android.content.Intent;

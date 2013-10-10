@@ -18,13 +18,14 @@
 3、被推广的用户下载完成3个赚钱任务即为一个有效用户。
 " 
         android:textSize="15sp"
-        android:textColor="@color/divider_color"/>
+        android:textColor="@color/black"/>
 
     <ScrollView
         android:id="@+id/urlzone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/into" >
+        android:layout_below="@+id/into"
+        android:layout_marginTop="10dip" >
 
         <LinearLayout
             android:layout_width="fill_parent"

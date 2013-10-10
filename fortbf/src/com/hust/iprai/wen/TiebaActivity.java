@@ -1,6 +1,6 @@
 package com.hust.iprai.wen;
 
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import android.app.AlertDialog;
 import android.app.TabActivity;

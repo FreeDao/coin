@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.jq.model.SignTask;
 import org.jq.nbz.JQBaseActivity;
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 import org.jq.nbz.RunPackageActivity;
 
 import util.ImageBinder;

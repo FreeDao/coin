@@ -2,7 +2,7 @@ package com.hust.iprai.wen;
 
 import org.jq.nbz.PayRecordActivity;
 import org.jq.nbz.PayRequest;
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import android.app.ActivityGroup;
 import android.content.Intent;

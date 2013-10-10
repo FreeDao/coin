@@ -7,7 +7,7 @@ import java.util.List;
 import org.jq.model.DownloadTask;
 import org.jq.model.MockTask;
 import org.jq.nbz.JQBaseActivity;
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 import org.jq.nbz.RunPackageActivity;
 import org.jq.nbz.SpreadActivity;
 

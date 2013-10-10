@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.jq.model.DownloadTask;
 import org.jq.model.WallpaperTask;
+import org.jq.zmdr.R;
 
 import util.Static;
 import util.Tool;

@@ -1,7 +1,7 @@
 package com.hust.iprai.wen;
 
 import org.jq.model.Detail;
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import util.Static;
 import android.app.Activity;

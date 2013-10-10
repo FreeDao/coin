@@ -1,5 +1,6 @@
 package org.jq.nbz;
 
+import org.jq.zmdr.R;
 import util.Static;
 import util.Tool;
 import android.app.Activity;

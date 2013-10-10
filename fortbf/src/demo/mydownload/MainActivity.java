@@ -6,7 +6,7 @@ import java.util.List;
 
 import net.tsz.afinal.FinalDBChen;
 
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

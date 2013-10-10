@@ -12,7 +12,7 @@
         android:id="@+id/into"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="点击安装应用并立即打开注册，体验90秒以上，即可获得相应奖励。\n体验完毕退回本页面哦～" 
+        android:text="点击蓝色按钮安装应用并立即打开注册，体验60秒以上，即可获得相应奖励。\n体验完毕退回本页面哦～" 
         android:textSize="28sp"
         android:textColor="@color/divider_color"/>
 
@@ -22,12 +22,16 @@
         android:orientation="vertical" 
         android:layout_centerInParent="true">
 
-        <ImageButton
+        <Button
             android:id="@+id/play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/play" 
-            />
+            android:drawableTop="@drawable/play"
+            android:gravity="center"
+            android:text="点击体验" 
+            android:textSize="20sp"
+            android:textColor="@color/white"
+           />
 
     </LinearLayout>
     

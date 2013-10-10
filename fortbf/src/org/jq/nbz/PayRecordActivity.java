@@ -3,6 +3,7 @@ package org.jq.nbz;
 import java.util.ArrayList;
 
 import org.jq.model.PayRequestRecord;
+import org.jq.zmdr.R;
 
 import util.Static;
 import android.app.Activity;

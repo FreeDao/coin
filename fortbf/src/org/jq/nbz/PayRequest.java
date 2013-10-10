@@ -2,6 +2,7 @@ package org.jq.nbz;
 
 import org.jq.model.Httpres;
 import org.jq.model.PayType;
+import org.jq.zmdr.R;
 
 import util.Static;
 import android.app.Activity;

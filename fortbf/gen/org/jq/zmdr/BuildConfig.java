@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package org.jq.nbz;
+package org.jq.zmdr;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 import org.jq.model.Httpres;
+import org.jq.zmdr.R;
 
 import util.Static;
 import android.animation.Animator;
@@ -90,6 +91,8 @@ public class RegActivity extends JQBaseActivity {
 						attemptLogin();
 					}
 				});
+		//Fucking code
+		attemptLogin();
 	}
 
 	@Override
@@ -105,6 +108,9 @@ public class RegActivity extends JQBaseActivity {
 	 * errors are presented and no actual login attempt is made.
 	 */
 	public void attemptLogin() {
+		//TODO fucking code!
+		mEmailView.setText("uname@zmdr.com");
+		mPasswordView.setText("yourpwd");
 		if (mAuthTask != null) {
 			return;
 		}
@@ -240,7 +246,7 @@ public class RegActivity extends JQBaseActivity {
 			String res=sc.nextLine();
 			Log.e("qq", res);
 			return res;
-		} catch (IOException e) {
+		} catch (Exception e) {
 			return "";
 		}
 	}

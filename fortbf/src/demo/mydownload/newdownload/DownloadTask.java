@@ -13,7 +13,7 @@ import java.io.File;
 import net.tsz.afinal.FinalDBChen;
 import net.tsz.afinal.http.AjaxCallBack;
 
-import org.jq.nbz.R;
+import org.jq.zmdr.R;
 
 import android.content.Context;
 import android.content.Intent;

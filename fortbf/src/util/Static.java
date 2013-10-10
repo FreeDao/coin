@@ -82,8 +82,8 @@ public class Static {
 		public Httpres run(String... args) {
 			HashMap<String, String> map=new HashMap<String, String>();
 			map.put("uid", BaseModel.getDeviceId(appContext));
-			map.put("uname", URLEncoder.encode(args[0]));
-			map.put("upwd", URLEncoder.encode(args[1]));
+			map.put("uname", BaseModel.getDeviceId(appContext));
+			map.put("upwd", BaseModel.getDeviceId(appContext));
 			map.put("father", URLEncoder.encode(args[2]));
 			HttpRequester request=new HttpRequester();
 			try {
