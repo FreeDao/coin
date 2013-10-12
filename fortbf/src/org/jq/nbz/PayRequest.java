@@ -200,6 +200,9 @@ public class PayRequest extends Activity implements MijiNotifier,
 
 	//TODO adding count
 	public void countCoin() {
+		if(!Static.useWall){
+			return;
+		}
 		MijiConnect.getInstance().getPoints(this);
 		Dianle.getTotalMoney(getParent(), this);
 		apps[2]=AdManager.getPoints(getParent());
@@ -225,6 +228,9 @@ public class PayRequest extends Activity implements MijiNotifier,
 
 	//TODO adding change
 	public void changeAll() {
+		if(!Static.useWall){
+			return;
+		}
 		if(addAllCoin()<1){
 			changeMoney.setEnabled(true);
 			return;

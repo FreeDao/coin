@@ -124,6 +124,7 @@
         </meta-data>
         <!-- umeng end -->
 
+
     </application>
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />

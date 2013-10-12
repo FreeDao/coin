@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.jq.zmdr"
     android:versionCode="1"
-    android:versionName="2.2" >
+    android:versionName="2.1" >
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -123,86 +123,6 @@
             android:value="Umeng" >
         </meta-data>
         <!-- umeng end -->
-        
-        <!-- mijifen start -->
-        <activity
-            android:name="com.miji.MJCOffersWebView"
-            android:configChanges="keyboardHidden|orientation" />
-
-        <receiver
-            android:name="com.miji.receiver.AppStatusReceiver"
-            android:enabled="true"
-            android:exported="false" >
-            <intent-filter android:priority="0x7fffffff" >
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <action android:name="android.intent.action.PACKAGE_REPLACED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-
-        <!-- 以下属性为应用ID,从米积分后台获取 -->
-
-        <meta-data
-            android:name="MIJI_SECRETKEY"
-            android:value="0626c8bc52a73c4fb779d0b249fc9779" />
-
-        <!-- 以下属性为分发渠道ID,编码表参见本文档末附表 -->
-
-        <meta-data
-            android:name="MIJI_CHANNEL"
-            android:value="Miji" />
-        <!-- mijifen end -->
-
-
-        <!-- dianle start -->
-        <activity
-            android:name="org.jq.nbz.MDLActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <service android:name="org.jq.nbz.MDLService" />
-        <!-- dianle end -->
-
-
-        <!-- yinggao start -->
-        <meta-data
-            android:name="PUBLISHER_ID_OFFERS"
-            android:value="FDFB6ADA14412348779A671F734D526277C53493" />
-        <meta-data
-            android:name="TESTMODE_OFFERS"
-            android:value="false" />
-        <meta-data
-            android:name="INTEGRAL_PROXY_ID"
-            android:value="1" />
-
-        <activity
-            android:name="com.winad.android.offers.OffersActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.winad.android.offers.FeedBackInfo"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-
-        <service android:name="com.winad.android.offers.parameter.SyService" />
-
-        <receiver android:name="com.winad.android.offers.AutoOpenReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.offers.REDOWNLOAD" />
-            </intent-filter>
-        </receiver>
-        <!-- yinggao end -->
-
-
-        <!-- qumi start -->
-        <activity
-            android:name="com.newqm.sdkoffer.QuMiActivity"
-            android:configChanges="keyboardHidden|orientation" />
-        <!-- qumi end -->
 
     </application>
 

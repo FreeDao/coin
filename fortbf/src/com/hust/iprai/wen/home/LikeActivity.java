@@ -189,10 +189,10 @@ public class LikeActivity extends JQBaseActivity {
 				}
 			};
 			dataArr.add(0, spread);
-			dataArr.add(app1);
-			dataArr.add(app2);
-			dataArr.add(app3);
-			dataArr.add(app4);
+			//dataArr.add(app1);
+			//dataArr.add(app2);
+			//dataArr.add(app3);
+			//dataArr.add(app4);
 		}
 		
 		@Override

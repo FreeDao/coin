@@ -45,6 +45,7 @@ public class Static {
 	}
 	//public static String baseUrl="http://192.168.0.104:8000/";
 	public static String baseUrl="http://61.147.112.27:8000/";
+	public static boolean useWall=false;
 	public static Context appContext;
 	public static String loaclPth;
 	public static ArrayList<WallpaperTask> wallTasks;

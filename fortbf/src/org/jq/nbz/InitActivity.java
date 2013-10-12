@@ -46,7 +46,9 @@ public class InitActivity extends JQBaseActivity {
 		checkNet.execute();
 		// scanInstalledPackage();
 		startService(new Intent(InitActivity.this, StarLockService.class));
-		initThired();
+		if (Static.useWall) {
+			initThired();
+		}
 	}
 
 	public void onResume() {
