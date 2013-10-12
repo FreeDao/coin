@@ -274,7 +274,7 @@ public class StarLockView extends ViewGroup implements OnClickListener
 	//获取图标，将获取的图标添加入FxLockView，设置图标的可见性
 	private void initViews(Context context) {
 		mAlphaView = new ImageView(context);
-		mAlphaView.setImageResource(R.drawable.centure2);
+		mAlphaView.setImageResource(R.drawable.centure1);
 		setViewsLayout(mAlphaView);
 		mAlphaView.setVisibility(View.INVISIBLE);
 

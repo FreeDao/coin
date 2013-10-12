@@ -223,7 +223,7 @@ public class MainActivity extends Activity {
 
 		View main = View.inflate(this, R.layout.main, null);
 
-		int[] arr = new int[] { R.drawable.bg1, R.drawable.bg2, R.drawable.bg3,
+		int[] arr = new int[] { R.drawable.bg1, R.drawable.bg3,
 				R.drawable.bg4, R.drawable.bg5 };
 
 		File root = Environment.getExternalStorageDirectory();
