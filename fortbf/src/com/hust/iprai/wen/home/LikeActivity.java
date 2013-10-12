@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dlnetwork.Dianle;
 import com.miji.MijiConnect;
@@ -125,6 +126,9 @@ public class LikeActivity extends JQBaseActivity {
 			mock();
 		}
 
+		public void showMessage(){
+			Toast.makeText(getParent(), "金币可提现换钱哦", 0).show();
+		}
 		public void mock(){
 			MockTask spread=new MockTask();
 			spread.txt="推广朋友赚1.5元";
@@ -145,6 +149,7 @@ public class LikeActivity extends JQBaseActivity {
 				
 				@Override
 				public void onClick(View v) {
+					showMessage();
 					MijiConnect.getInstance().showOffers();
 				}
 			};
@@ -156,6 +161,7 @@ public class LikeActivity extends JQBaseActivity {
 				
 				@Override
 				public void onClick(View v) {
+					showMessage();
 					Dianle.showOffers(LikeActivity.this);
 				}
 			};
@@ -166,6 +172,7 @@ public class LikeActivity extends JQBaseActivity {
 				
 				@Override
 				public void onClick(View v) {
+					showMessage();
 					AdManager.showAdOffers(LikeActivity.this);
 				}
 			};
@@ -177,6 +184,7 @@ public class LikeActivity extends JQBaseActivity {
 				
 				@Override
 				public void onClick(View v) {
+					showMessage();
 					QuMiConnect.getQumiConnectInstance().showOffers(null);
 				}
 			};

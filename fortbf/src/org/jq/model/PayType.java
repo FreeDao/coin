@@ -30,8 +30,10 @@ public class PayType extends BaseModel{
 	public static PayType[] typeArr=new PayType[]{
 		new PayType("20Q币充值","请输入qq号",20),
 		new PayType("50Q币充值","请输入qq号",47),
+		new PayType("10话费充值","请输入手机号",10),
 		new PayType("30话费充值","请输入手机号",30),
 		new PayType("50话费充值","请输入手机号",50),
+		new PayType("支付宝10充值","请输入支付宝账号",10),
 		new PayType("支付宝50充值","请输入支付宝账号",50),
 		new PayType("支付宝100充值","请输入支付宝账号",100),
 		new PayType("支付宝200充值","请输入支付宝账号",200),

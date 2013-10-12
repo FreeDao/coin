@@ -3,7 +3,8 @@ package org.jq.model;
 public class Detail extends BaseModel{
 
 	private static final long serialVersionUID = -6533836657281449307L;
-
+	
+	public int did;
 	public double allin;
 	public double allout;
 	public double downin;

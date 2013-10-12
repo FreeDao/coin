@@ -32,6 +32,7 @@ import com.hust.iprai.wen.TiebaActivity;
 import com.miji.MijiConnect;
 import com.newqm.sdkoffer.QuMiConnect;
 import com.stevenhu.lock.StarLockService;
+import com.umeng.analytics.MobclickAgent;
 import com.winad.android.offers.AdManager;
 
 public class InitActivity extends JQBaseActivity {
@@ -46,6 +47,16 @@ public class InitActivity extends JQBaseActivity {
 		// scanInstalledPackage();
 		startService(new Intent(InitActivity.this, StarLockService.class));
 		initThired();
+	}
+
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
 	}
 
 	// TODO adding apps
@@ -79,6 +90,19 @@ public class InitActivity extends JQBaseActivity {
 		}
 
 		protected void onPostExecute(Integer result) {
+			boolean shouldUpdate = false;
+			if (Static.share.version != null
+					&& (!Static.share.version.version
+							.equals(getAppVersionName(InitActivity.this)))) {
+				try {
+					double vRemote = Double
+							.parseDouble(Static.share.version.version);
+					double vLocal = Double
+							.parseDouble(getAppVersionName(InitActivity.this));
+					shouldUpdate = vRemote > vLocal;
+				} catch (Exception e) {
+				}
+			}
 			if (result < 0) {
 				Toast.makeText(InitActivity.this, "无法连接服务器，请检查网络", 1).show();
 				runDelay(new Runnable() {
@@ -88,11 +112,7 @@ public class InitActivity extends JQBaseActivity {
 						finish();
 					}
 				}, 2000);
-			} else if (Static.share.version != null
-					&& (!Static.share.version.version
-							.equals(getAppVersionName(InitActivity.this)))) {
-				Log.e("qq", Static.share.version.version + ":"
-						+ getAppVersionName(InitActivity.this));
+			} else if (shouldUpdate) {
 				showUpdate();
 			} else if (result == 0) {
 				getTasks.execute();
@@ -148,14 +168,14 @@ public class InitActivity extends JQBaseActivity {
 	}
 
 	protected void showUpdate() {
-		final DownloadTask data=new DownloadTask();
-		data.apk=Static.share.version.url;
-		View v=View.inflate(InitActivity.this, R.layout.download_item, null);
+		final DownloadTask data = new DownloadTask();
+		data.apk = Static.share.version.url;
+		View v = View.inflate(InitActivity.this, R.layout.download_item, null);
 		TextView name = (TextView) v.findViewById(R.id.apkname);
 		TextView info = (TextView) v.findViewById(R.id.info);
 		ImageView icon = (ImageView) v.findViewById(R.id.appicon);
 		final Button btn = (Button) v.findViewById(R.id.downbtn);
-		name.setText("桌面达人 v"+Static.share.version.version);
+		name.setText("桌面达人 v" + Static.share.version.version);
 		info.setText("小手一抖，话费到手");
 		icon.setImageResource(R.drawable.ic_launcher);
 		final ProgressBar progress = (ProgressBar) v
@@ -178,7 +198,7 @@ public class InitActivity extends JQBaseActivity {
 								publishProgress(progress);
 							}
 						};
-						return Tool.download(data.apk, call,true);
+						return Tool.download(data.apk, call, true);
 					}
 
 					@Override
@@ -199,7 +219,8 @@ public class InitActivity extends JQBaseActivity {
 			}
 
 		});
-		Builder alert=new AlertDialog.Builder(this).setTitle("有新版本啦！").setView(v);
+		Builder alert = new AlertDialog.Builder(this).setTitle("有新版本啦！")
+				.setView(v);
 		alert.setCancelable(false);
 		alert.show();
 	}

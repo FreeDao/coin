@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.jq.zmdr"
     android:versionCode="1"
-    android:versionName="1.1" >
+    android:versionName="2.2" >
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -112,8 +112,19 @@
             android:launchMode="singleInstance"
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
-
-        <!-- 米积分 start -->
+        
+        <!-- umeng start -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5259922b56240bcc97038035" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng" >
+        </meta-data>
+        <!-- umeng end -->
+        
+        <!-- mijifen start -->
         <activity
             android:name="com.miji.MJCOffersWebView"
             android:configChanges="keyboardHidden|orientation" />
@@ -142,7 +153,7 @@
         <meta-data
             android:name="MIJI_CHANNEL"
             android:value="Miji" />
-        <!-- 米积分 end -->
+        <!-- mijifen end -->
 
 
         <!-- dianle start -->

@@ -18,6 +18,7 @@ def checkDevice(request):
     res['version']='{"version":"1.1","url":"http://61.147.112.27:8000/spread/zmdr.apk"}'
     res['devmoney']=dev.money
     dict={}
+    dict['did']=dev.id
     dict['allin']=dev.allin
     dict['allout']=dev.allout
     dict['downin']=dev.downin
@@ -249,9 +250,9 @@ def addSign(request):
         now=datetime.now(tz=pytz.utc)
         delta=now-lasttime
         app=App.objects.get(packagename=package)
-        if item.percent<.6 and delta.days==1:
+        if item.percent<.8 and delta.days==1:
             print 'run'
-            per=.3
+            per=.2
             moneyChanged=app.price*per
             item.money=item.money+moneyChanged
             item.percent=item.percent+per
@@ -266,8 +267,8 @@ def addSign(request):
             log.type='sign:'+package
             log.amount=moneyChanged
             log.save()
-        elif item.percent<.9 and delta.days==4:
-            per=.2
+        elif item.percent<.95 and delta.days==4:
+            per=.1
             moneyChanged=app.price*per
             item.money=item.money+moneyChanged
             item.percent=item.percent+per
@@ -307,9 +308,9 @@ def adddownload(request):
         app=App.objects.get(packagename=package)
         item=downloadtask()
         item.uid=uid
-        item.money=app.price*.5
+        item.money=app.price*.7
         item.packagename=package
-        item.percent=.5
+        item.percent=.7
         item.save()
         dev=Device.objects.get(uid=uid)
         dev.money+=item.money

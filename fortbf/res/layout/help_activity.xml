@@ -112,7 +112,7 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginRight="10.0dip"
                     android:layout_marginTop="15.0dip"
-                    android:text="答：可以进桌面达人官网寻求可以客服帮忙，也可以加入桌面达人的qq群进行咨询。桌面达人官网：www.md1.com桌面达人10群：电脑网赚官网：www.tianzhuan.net
+                    android:text="答：可以进桌面达人官网寻求可以客服帮忙，也可以加入桌面达人的qq群进行咨询。\n桌面达人官网：www.md1.cn\n桌面达人10群：98424957\n电脑网赚官网：www.tianzhuan.net
 "
                     android:textColor="@color/black" />
 

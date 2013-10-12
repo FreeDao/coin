@@ -153,7 +153,7 @@ public class PayRequest extends Activity implements MijiNotifier,
 			protected void onPostExecute(Httpres result) {
 				if (result != null) {
 					double dou = (double) Math.round(result.devmoney * 100) / 100;
-					currentMoney.setText(dou + "ฃค");
+					currentMoney.setText(dou + "ิช");
 				}
 			}
 		};

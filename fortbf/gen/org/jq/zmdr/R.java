@@ -150,10 +150,10 @@ public final class R {
         public static final int RelativeLayout1=0x7f090020;
         public static final int about_bieta=0x7f090070;
         public static final int account_name=0x7f090023;
-        public static final int action_forgot_password=0x7f09008d;
-        public static final int action_settings=0x7f09008c;
-        public static final int allin=0x7f090081;
-        public static final int allout=0x7f090082;
+        public static final int action_forgot_password=0x7f09008e;
+        public static final int action_settings=0x7f09008d;
+        public static final int allin=0x7f090082;
+        public static final int allout=0x7f090083;
         public static final int am_pm=0x7f090046;
         public static final int apkname=0x7f09002b;
         public static final int app1=0x7f090022;
@@ -181,8 +181,9 @@ public final class R {
         public static final int date=0x7f090047;
         public static final int delete_movie=0x7f09003d;
         public static final int description=0x7f090064;
+        public static final int did=0x7f090080;
         public static final int downbtn=0x7f09002d;
-        public static final int downin=0x7f090084;
+        public static final int downin=0x7f090085;
         public static final int download_bt=0x7f090043;
         public static final int download_listview=0x7f090004;
         public static final int download_listview_lin=0x7f090072;
@@ -202,9 +203,9 @@ public final class R {
         public static final int home_layout_bar=0x7f090035;
         public static final int home_lv_mark=0x7f090052;
         public static final int home_progress_like=0x7f090053;
-        public static final int in_download=0x7f090083;
-        public static final int in_sign=0x7f090085;
-        public static final int in_wallpaper=0x7f090088;
+        public static final int in_download=0x7f090084;
+        public static final int in_sign=0x7f090086;
+        public static final int in_wallpaper=0x7f090089;
         public static final int index=0x7f09003b;
         public static final int info=0x7f09002c;
         public static final int install=0x7f090042;
@@ -237,7 +238,7 @@ public final class R {
         public static final int miji_progress_bar=0x7f090065;
         public static final int miji_progress_text=0x7f090062;
         public static final int miji_title=0x7f090063;
-        public static final int money=0x7f090080;
+        public static final int money=0x7f090081;
         public static final int movie_file_size=0x7f09002f;
         public static final int movie_headiamge_checkbox=0x7f09002e;
         public static final int movie_headimage=0x7f09003e;
@@ -251,7 +252,7 @@ public final class R {
         public static final int position_paper=0x7f090071;
         public static final int progress=0x7f09007f;
         public static final int progressBar1=0x7f090006;
-        public static final int quickin=0x7f09008a;
+        public static final int quickin=0x7f09008b;
         public static final int radio_home=0x7f09004c;
         public static final int radio_mention=0x7f09004d;
         public static final int radio_more=0x7f09004f;
@@ -263,11 +264,11 @@ public final class R {
         public static final int scroll=0x7f090021;
         public static final int sex=0x7f09007d;
         public static final int sign_in_button=0x7f09001a;
-        public static final int signin=0x7f090086;
+        public static final int signin=0x7f090087;
         public static final int spinner1=0x7f09000f;
         public static final int spread=0x7f090028;
-        public static final int spreaddetail=0x7f09008b;
-        public static final int spreadin=0x7f090087;
+        public static final int spreaddetail=0x7f09008c;
+        public static final int spreadin=0x7f090088;
         public static final int stop_download_bt=0x7f090040;
         public static final int submit=0x7f090034;
         public static final int textView1=0x7f090005;
@@ -287,7 +288,7 @@ public final class R {
         public static final int urlzone=0x7f09001d;
         public static final int viewPager=0x7f090039;
         public static final int view_images=0x7f09006b;
-        public static final int wallpaperin=0x7f090089;
+        public static final int wallpaperin=0x7f09008a;
     }
     public static final class layout {
         public static final int activity_download_manager=0x7f030000;

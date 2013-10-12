@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class PersonInfoActivity extends Activity {
 
-	TextView allin,allout,downin,sinin,wallpaperin,spreadin,quickin,spreadDetail,money;
+	TextView did,allin,allout,downin,sinin,wallpaperin,spreadin,quickin,spreadDetail,money;
 	View refresh;
 	
 	@Override
@@ -25,6 +25,7 @@ public class PersonInfoActivity extends Activity {
 	}
 	
 	private void initView(){
+		did=(TextView)findViewById(R.id.did);
 		allin=(TextView)findViewById(R.id.allin);
 		allout=(TextView)findViewById(R.id.allout);
 		downin=(TextView)findViewById(R.id.downin);
@@ -55,14 +56,15 @@ public class PersonInfoActivity extends Activity {
 			@Override
 			protected void onPostExecute(Detail result) {
 				if(result!=null){
-					money.setText(result.money+"");
-					allin.setText(result.allin+"");
-					allout.setText(result.allout+"");
-					downin.setText(result.downin+"");
-					sinin.setText(result.signin+"");
-					wallpaperin.setText(result.wallpaperin+"");
-					spreadin.setText(result.spreadin+"");
-					quickin.setText(result.quickin+"");
+					did.setText("总收支          桌面达人ID:"+(840046209l+result.did));
+					money.setText(result.money+"元");
+					allin.setText(result.allin+"元");
+					allout.setText(result.allout+"元");
+					downin.setText(result.downin+"元");
+					sinin.setText(result.signin+"元");
+					wallpaperin.setText(result.wallpaperin+"元");
+					spreadin.setText(result.spreadin+"元");
+					quickin.setText(result.quickin+"元");
 					spreadDetail.setText("推广用户"+result.spreadnum+"人，其中"+result.activenum+"人激活");
 				}
 			}
